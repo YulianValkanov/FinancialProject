@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-FinancialServices-6709E65A-AD18-42DC-8621-84233A9C1F6A")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinancialServices")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

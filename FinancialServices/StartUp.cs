@@ -1,8 +1,6 @@
-using FinancialServices.Areas.Administration.Services;
-using FinancialServices.Contracts;
 using FinancialServices.Data;
 using FinancialServices.Data.Models;
-using FinancialServices.Services;
+using FinancialServices.ModelBinders;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,10 +28,17 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/User/Login";
 });
 
-builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<ICompanyService, CompanyService>();
-builder.Services.AddScoped<IDatabaseService, DatabaseService>();
+
+builder.Services.AddControllersWithViews()
+     .AddMvcOptions(options =>
+     {
+         options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+     });
+
+builder.Services.AddApplicationServices();
+
+
 
 var app = builder.Build();
 
