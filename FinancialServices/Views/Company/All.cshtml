@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AllViewModel>
+
+@{
+    ViewBag.Title = "FinancialServices";
+}
+
+
+
+
+<div class="container">
+    <h2>КЛИЕНТИ:</h2>
+    <p>Резултат:</p>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th>Фирма</th>
+                <th>Булстат</th>
+                <th>КИД</th>
+                <th>Група</th>
+                <th>Наименование </th>
+                <th>Позиция</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        @foreach (var company in Model)
+        {     
+                <tr>
+                    <td>@company.CompanyName</td>
+                    <td>@company.IdEik</td>
+                    <td>@company.KidNumber</td>
+                    <td>@company.Group</td>
+                    <td>@company.GroupName</td>
+                    <td>@company.PositionName</td>
+                    <td>
+                        <form class="input-group-sm" asp-route-IdEik="@company.IdEik" asp-controller="Company" asp-action="CompanyInfo" method="post">
+                            <input type="submit" value="Info" class="fs-6 btn btn-success mb-3 p-2" />
+                        </form>
+
+
+                     @*   <form class="input-group-sm" asp-route-IdEik="@company.IdEik" asp-controller="Company" asp-action="Edit" method="post">
+                        <input type="submit" value="Edit" class="fs-6 btn btn-success mb-3 p-2" />
+                        </form>*@
+
+                    </td>
+                </tr>          
+        }
+            </tbody>   
+     
+    </table>
+</div>
+
+
+
+           @* <form class="input-group-sm" asp-route-movieId="@movie.Id" asp-controller="Movies" asp-action="AddToCollection" method="post">
+                <input type="submit" value="Mark as Watched" class="fs-6 btn btn-success mb-3 p-2" />
+            </form>*@
+

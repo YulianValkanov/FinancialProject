@@ -1,0 +1,21 @@
+﻿@using FinancialServices.Areas.Administration.Models
+@model ImportsViewModel
+
+@{
+    ViewBag.Title = "Импортирай файлове с данни";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+
+    <input type="button" value="Import" onclick="location.href='Administration/Import'" />
+
+ 
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
