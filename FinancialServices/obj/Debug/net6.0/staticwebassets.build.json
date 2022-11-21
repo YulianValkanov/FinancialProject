@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5CTc+UN28P8DYh3EJjR+wB4kB5M1I4Fi0x0TW+5OJVI=",
+  "Hash": "lhYGTP4+pKwN0v6uNhh7c9XY2bf2szMzwu9ZpXiAC70=",
   "Source": "FinancialServices",
   "BasePath": "_content/FinancialServices",
   "Mode": "Default",
@@ -2106,6 +2106,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Users\\User\\Desktop\\IveniBase\\FinancialServices\\wwwroot\\lib\\toastr\\toastr.min.css",
+      "SourceId": "FinancialServices",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Users\\User\\Desktop\\IveniBase\\FinancialServices\\wwwroot\\",
+      "BasePath": "_content/FinancialServices",
+      "RelativePath": "lib/toastr/toastr.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\toastr\\toastr.min.css"
+    },
+    {
+      "Identity": "D:\\Users\\User\\Desktop\\IveniBase\\FinancialServices\\wwwroot\\lib\\toastr\\toastr.min.js",
+      "SourceId": "FinancialServices",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Users\\User\\Desktop\\IveniBase\\FinancialServices\\wwwroot\\",
+      "BasePath": "_content/FinancialServices",
+      "RelativePath": "lib/toastr/toastr.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\toastr\\toastr.min.js"
     }
   ]
 }

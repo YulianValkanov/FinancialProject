@@ -1,12 +1,10 @@
-﻿using FinancialServices.Contracts;
-using FinancialServices.Data;
+﻿using FinancialServices.Constants;
+using FinancialServices.Contracts;
 using FinancialServices.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography;
-using System.Text.RegularExpressions;
 using Theatre.Data.Models;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 
 namespace FinancialServices.Controllers
 {
@@ -29,6 +27,8 @@ namespace FinancialServices.Controllers
         {
             var model = await companyService.GetAllAsync();
 
+
+
             return View(model);
         }
 
@@ -36,6 +36,7 @@ namespace FinancialServices.Controllers
         public async Task<IActionResult> Add()
         {
             var model = new AddCompaniesViewModel();
+
 
             return View(model);
         }
@@ -51,6 +52,8 @@ namespace FinancialServices.Controllers
             try
             {
                 await companyService.AddCompanyAsync(model);
+
+                TempData[MessageConstants.SiccessMessage] = "Успешно добавихте фирма";
 
                 return RedirectToAction(nameof(All));
             }
@@ -84,6 +87,8 @@ namespace FinancialServices.Controllers
                 Status = company.Status,
             };
 
+          
+
             return View(model);
         }
 
@@ -99,6 +104,8 @@ namespace FinancialServices.Controllers
             try
             {            
                 await companyService.EditCompanyAsync(idEik, model);
+
+                TempData[MessageConstants.SiccessMessage] = "Успешно редактирахте фирма";
 
                 return RedirectToAction(nameof(All));
             }
@@ -152,6 +159,8 @@ namespace FinancialServices.Controllers
         {
            await companyService.DeleteAsync(idEik);
 
+            TempData[MessageConstants.ErrorMessage] = "Успешно изтрихте фирма";
+
             return RedirectToAction(nameof(All));
         }
 
@@ -160,6 +169,8 @@ namespace FinancialServices.Controllers
         public async Task<IActionResult> Deactivate(long idEik)
         {
             await companyService.DeactivateAsync(idEik);
+
+            TempData[MessageConstants.WarningMessage] = "Успешно деактивирахте фирма";
 
             return RedirectToAction(nameof(All));
         }
