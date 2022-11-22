@@ -34,5 +34,10 @@ namespace FinancialServices.Contracts
         //Task<IEnumerable<MovieViewModel>> GetWatchedAsync(string userId);
 
         //Task RemoveMovieFromCollectionAsync(int movieId, string userId);
+
+        Task<IEnumerable<AllViewModel>> AllFilter(
+           string? eik = null,
+           string? companyName = null,
+              string? kid = null);
     }
 }

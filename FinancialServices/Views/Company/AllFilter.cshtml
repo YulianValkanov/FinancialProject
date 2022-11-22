@@ -1,0 +1,92 @@
+﻿@model AllQueryModel
+
+@{
+    ViewBag.Title = "All Filter Houses";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form method="get">
+    <div class="row">
+        <div class="form-group col-md-3 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="Eik"></label>
+                <input asp-for="Eik" class="form-control" placeholder="...">
+               
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label asp-for="CompanyName"></label>
+            <input asp-for="CompanyName" class="form-control" placeholder="...">
+        </div>
+
+        <div class="form-group col-md-3">
+            <div class="form-group">
+                <label asp-for="Kid"></label>
+                <input asp-for="Kid" class="form-control" placeholder="...">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group mt-4 p-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+<div class="row">
+   
+
+        <div class="container">
+            <h2>КЛИЕНТИ:</h2>
+            <p>Резултат:</p>
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Фирма</th>
+                        <th>Булстат</th>
+                        <th>КИД</th>
+                        <th>Група</th>
+                        <th>Наименование </th>
+                        <th>Позиция</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var company in Model.Companyes)
+                    {
+                        <tr>
+                            <td>@company.CompanyName</td>
+                            <td>@company.IdEik</td>
+                            <td>@company.KidNumber</td>
+                            <td>@company.Group</td>
+                            <td>@company.GroupName</td>
+                            <td>@company.PositionName</td>
+                            <td>
+                                <form class="input-group-sm" asp-route-IdEik="@company.IdEik" asp-controller="Company" asp-action="CompanyInfo" method="post">
+                                    <input type="submit" value="Info" class="fs-6 btn btn-success mb-3 p-2" />
+                                </form>
+
+
+                                @*   <form class="input-group-sm" asp-route-IdEik="@company.IdEik" asp-controller="Company" asp-action="Edit" method="post">
+                        <input type="submit" value="Edit" class="fs-6 btn btn-success mb-3 p-2" />
+                        </form>*@
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    
+</div>

@@ -1,9 +1,12 @@
 ﻿using FinancialServices.Contracts;
 using FinancialServices.Data;
+using FinancialServices.Data.Common;
 using FinancialServices.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel;
 using Theatre.Data.Models;
+using static FinancialServices.Services.CompanyService;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace FinancialServices.Services
@@ -12,13 +15,19 @@ namespace FinancialServices.Services
     {
         private readonly FinanceDbContext context;
 
-        public CompanyService(FinanceDbContext _context)
+        private readonly IRepository repo;
+
+        public CompanyService(
+            FinanceDbContext _context,
+            IRepository _repo)
         {
             context = _context;
+            repo = _repo;
         }
 
+       
 
-        public async Task AddCompanyAsync(AddCompaniesViewModel model)
+            public async Task AddCompanyAsync(AddCompaniesViewModel model)
         {
             string kid=model.KidNumber;
 
@@ -281,5 +290,86 @@ namespace FinancialServices.Services
         //        await context.SaveChangesAsync();
         //    }
         //}
+
+
+        public async Task<IEnumerable<AllViewModel>> AllFilter(string? eik = null, string? companyName = null, string? kid = null)
+        {
+           
+
+            var companies = repo.AllReadonly<Company>();
+         
+
+            if (string.IsNullOrEmpty(eik) == false)
+            {
+
+                eik = $"%{eik.ToLower()}%";
+
+                companies = companies
+                    .Where(c => EF.Functions.Like(c.IdEik.ToString().ToLower(), eik));
+
+
+                //try
+                //{
+                //    companies = companies
+                //   .Where(c => c.IdEik == long.Parse(eik));
+                //}
+                //catch (Exception)
+                //{
+
+                //    throw new ArgumentException("Invalid EIK");
+                //}
+            }
+
+            if (string.IsNullOrEmpty(companyName) == false)
+            {
+                companyName = $"%{companyName.ToLower()}%";
+
+                companies = companies
+                    .Where(c => EF.Functions.Like(c.CompanyName.ToLower(), companyName) );
+            }
+
+
+            if (string.IsNullOrEmpty(kid) == false)
+            {
+                kid = $"%{kid.ToLower()}%";
+
+                companies = companies
+                    .Where(c => EF.Functions.Like(c.KidNumber, kid));
+            }
+
+            //switch (sorting)
+            //{
+            //    case HouseSorting.Price:
+            //        houses = houses
+            //        .OrderBy(h => h.PricePerMonth);
+            //        break;
+            //    case HouseSorting.NotRentedFirst:
+            //        houses = houses
+            //        .OrderBy(h => h.RenterId);
+            //        break;
+            //    default:
+            //        houses = houses.OrderByDescending(h => h.Id);
+            //        break;
+            //}
+
+
+
+            var  result = await companies
+                .Select(c => new AllViewModel()
+                {
+                    IdEik = c.IdEik,
+                    CompanyName = c.CompanyName,
+                    KidNumber = c.KidNumber != null && c.KidNumber.Count() == 4 ? c.KidNumber.ToString() + "0" : c.KidNumber,
+                    Group = c.Kid.Group,
+                    GroupName = c.Kid.GroupName,
+                    PositionName = c.Kid.PositionName
+                })
+                .ToListAsync();
+
+           
+
+            return result;
+        }
+
     }
 }

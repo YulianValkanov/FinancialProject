@@ -1,6 +1,7 @@
 ﻿using FinancialServices.Constants;
 using FinancialServices.Contracts;
 using FinancialServices.Models;
+using FinancialServices.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Theatre.Data.Models;
@@ -175,6 +176,30 @@ namespace FinancialServices.Controllers
             return RedirectToAction(nameof(All));
         }
 
+
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> AllFilter([FromQuery] AllQueryModel query)
+        {
+            var comp = await companyService.AllFilter(
+                query.Eik,
+                query.CompanyName,
+                query.Kid
+                );
+
+           
+            query.Companyes = comp;
+
+            return View(query);
+        }
+
+
+
+
+
+
     }
 
     //public async Task<IActionResult> AddToCollection(int movieId)
@@ -207,5 +232,8 @@ namespace FinancialServices.Controllers
 
     //    return RedirectToAction(nameof(Watched));
     //}}
+
+
+
 }
 
