@@ -10,8 +10,13 @@ namespace FinancialServices.Models
         [DisplayName("Фирма")]
         public string? CompanyName { get; set; }
 
-        [DisplayName("КИД")]
+
+        [DisplayName("Група по КИД (N..N..N)")]
+        public string? Group { get; set; }
+
+        [DisplayName("КИД номера (N..N..N)")]
         public string? Kid { get; set; }
+
 
 
         public IEnumerable<AllViewModel> Companyes { get; set; } = Enumerable.Empty<AllViewModel>();

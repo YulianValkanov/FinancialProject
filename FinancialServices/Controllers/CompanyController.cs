@@ -186,7 +186,8 @@ namespace FinancialServices.Controllers
             var comp = await companyService.AllFilter(
                 query.Eik,
                 query.CompanyName,
-                query.Kid
+                query.Kid,
+                query.Group
                 );
 
            

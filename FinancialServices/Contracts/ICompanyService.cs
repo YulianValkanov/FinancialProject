@@ -38,6 +38,7 @@ namespace FinancialServices.Contracts
         Task<IEnumerable<AllViewModel>> AllFilter(
            string? eik = null,
            string? companyName = null,
-              string? kid = null);
+              string? kid = null,
+              string? group=null);
     }
 }

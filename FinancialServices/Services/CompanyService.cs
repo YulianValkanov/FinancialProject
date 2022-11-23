@@ -8,6 +8,7 @@ using System.ComponentModel;
 using Theatre.Data.Models;
 using static FinancialServices.Services.CompanyService;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace FinancialServices.Services
 {
@@ -292,7 +293,7 @@ namespace FinancialServices.Services
         //}
 
 
-        public async Task<IEnumerable<AllViewModel>> AllFilter(string? eik = null, string? companyName = null, string? kid = null)
+        public async Task<IEnumerable<AllViewModel>> AllFilter(string? eik = null, string? companyName = null, string? kid = null, string? group=null)
         {
            
 
@@ -329,13 +330,54 @@ namespace FinancialServices.Services
             }
 
 
+
+            if (string.IsNullOrEmpty(group) == false)
+            {
+                string[] arr = group.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+
+                companies = companies.Where(file => arr.Any(filter => file.Kid.Group == (filter)));
+
+
+            };
+
+
             if (string.IsNullOrEmpty(kid) == false)
             {
-                kid = $"%{kid.ToLower()}%";
+                //kid = $"%{kid.ToLower()}%";
 
-                companies = companies
-                    .Where(c => EF.Functions.Like(c.KidNumber, kid));
+                //companies = companies
+                //    .Where(c => EF.Functions.Like(c.KidNumber, kid));
+
+
+                string[] arr = kid.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+                int count = 0;
+
+                foreach (var currentKid in arr)
+                {
+                    string newKid = currentKid;
+
+                    if (currentKid != null)
+                    {
+                        newKid = currentKid.ToString();
+                        if (newKid.Count() == 5 && newKid[4].ToString() == "0")
+                        {
+                            newKid = newKid.Substring(0, 4);
+                        }
+                    }
+
+                    arr[count] = newKid;
+
+                    count++;
+                }
+
+                 companies = companies.Where(file => arr.Any(filter => file.KidNumber == (filter)));
+
+
             }
+
+           
 
             //switch (sorting)
             //{
