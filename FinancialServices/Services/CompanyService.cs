@@ -26,21 +26,21 @@ namespace FinancialServices.Services
             repo = _repo;
         }
 
-       
 
-            public async Task AddCompanyAsync(AddCompaniesViewModel model)
+
+        public async Task AddCompanyAsync(AddCompaniesViewModel model)
         {
-            string kid=model.KidNumber;
+            string kid = model.KidNumber;
 
-            if (model.KidNumber!=null)
+            if (model.KidNumber != null)
             {
-                 kid = model.KidNumber.ToString();
+                kid = model.KidNumber.ToString();
                 if (kid.Count() == 5 && kid[4].ToString() == "0")
                 {
                     kid = kid.Substring(0, 4);
                 }
             }
-           
+
 
             var entity = new Company()
             {
@@ -56,7 +56,7 @@ namespace FinancialServices.Services
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
                 Status = model.Status
-      
+
             };
 
 
@@ -70,7 +70,7 @@ namespace FinancialServices.Services
 
             context.Companies.Remove(company);
 
-           await context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
         public async Task DeactivateAsync(long idEik)
@@ -82,9 +82,9 @@ namespace FinancialServices.Services
             await context.SaveChangesAsync();
         }
 
-        public async Task EditCompanyAsync(long idEik,AddCompaniesViewModel model)
+        public async Task EditCompanyAsync(long idEik, AddCompaniesViewModel model)
         {
-            var company =await GetCompanyAsync(idEik);
+            var company = await GetCompanyAsync(idEik);
 
             string kid = model.KidNumber;
 
@@ -156,7 +156,7 @@ namespace FinancialServices.Services
                 {
                     IdEik = c.IdEik,
                     CompanyName = c.CompanyName,
-                    KidNumber = c.KidNumber !=null &&c.KidNumber.Count()==4 ? c.KidNumber.ToString()+"0" : c.KidNumber,
+                    KidNumber = c.KidNumber != null && c.KidNumber.Count() == 4 ? c.KidNumber.ToString() + "0" : c.KidNumber,
                     Group = c.Kid.Group,
                     GroupName = c.Kid.GroupName,
                     PositionName = c.Kid.PositionName
@@ -179,7 +179,7 @@ namespace FinancialServices.Services
             {
                 throw new ArgumentException("Invalid EIK");
             }
-       
+
 
             return company;
         }
@@ -188,15 +188,15 @@ namespace FinancialServices.Services
         {
 
             var listCompanyData = await context.MapingOwnerCompanies
-                .Include(x=>x.Company)
+                .Include(x => x.Company)
                 .Where(x => x.IdEik == idEik).ToListAsync();
 
             return listCompanyData;
         }
 
-        public async Task< List<Company>> GetCompanyOwnersAsync(List<MapingOwnerCompany> listCompanyData)
+        public async Task<List<Company>> GetCompanyOwnersAsync(List<MapingOwnerCompany> listCompanyData)
         {
-          
+
             List<Company> companyOwner = new List<Company>();
 
             foreach (var item in listCompanyData)
@@ -293,12 +293,12 @@ namespace FinancialServices.Services
         //}
 
 
-        public async Task<IEnumerable<AllViewModel>> AllFilter(string? eik = null, string? companyName = null, string? kid = null, string? group=null)
+        public async Task<IEnumerable<AllViewModel>> AllFilter(string? eik = null, string? companyName = null, string? kid = null, string? group = null)
         {
-           
+
 
             var companies = repo.AllReadonly<Company>();
-         
+
 
             if (string.IsNullOrEmpty(eik) == false)
             {
@@ -326,7 +326,7 @@ namespace FinancialServices.Services
                 companyName = $"%{companyName.ToLower()}%";
 
                 companies = companies
-                    .Where(c => EF.Functions.Like(c.CompanyName.ToLower(), companyName) );
+                    .Where(c => EF.Functions.Like(c.CompanyName.ToLower(), companyName));
             }
 
 
@@ -372,12 +372,12 @@ namespace FinancialServices.Services
                     count++;
                 }
 
-                 companies = companies.Where(file => arr.Any(filter => file.KidNumber == (filter)));
+                companies = companies.Where(file => arr.Any(filter => file.KidNumber == (filter)));
 
 
             }
 
-           
+
 
             //switch (sorting)
             //{
@@ -396,7 +396,7 @@ namespace FinancialServices.Services
 
 
 
-            var  result = await companies
+            var result = await companies
                 .Select(c => new AllViewModel()
                 {
                     IdEik = c.IdEik,
@@ -408,7 +408,7 @@ namespace FinancialServices.Services
                 })
                 .ToListAsync();
 
-           
+
 
             return result;
         }

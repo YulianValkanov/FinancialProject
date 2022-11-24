@@ -73,14 +73,18 @@
 
                 <tr>
                     <td><b> Представляващи:</b></td>
-                    <td></td>
+                    <td>                  
+                            <a asp-controller="Manager" asp-action="Add" asp-route-IdEik="@Model.IdEik"  method="post">Добави</a>
+                       
+                            <a asp-controller="Manager" asp-action="Edit" asp-route-IdEik="@Model.IdEik"  method="post">Изтрий</a>                    
+                    </td>
                 </tr>
 
                 @foreach (var manager in Model.Managers)
                 {
                     <tr>
                         <td>@Model.TypeRepresenting</td>
-                        <td>@manager.FirstName @manager.LastName </td>
+                        <td>ЕГН: @manager.IdEgn @manager.FirstName @manager.LastName </td>
                     </tr>
                 }
 
@@ -94,7 +98,7 @@
                 {
                     <tr>
                         <td>Собственик</td>
-                        <td>@owner.FirstName @owner.LastName</td>
+                        <td>ЕГН: @owner.FirstName @owner.LastName</td>
                         <td>@owner.MapingOwnerPersons.Select(x=>x.Persent*100).FirstOrDefault()% </td>
 
                     </tr>
@@ -114,7 +118,7 @@
 
                         <tr>
                             <td>Собственик</td>
-                            <td>@Model.OwnersCompaniesData[i].IdEikOwner  @Model.OwnersCompanies[i].CompanyName</td>
+                            <td>ЕИК: @Model.OwnersCompaniesData[i].IdEikOwner  @Model.OwnersCompanies[i].CompanyName</td>
                             <td>@((Model.OwnersCompaniesData[i].Persent*100).ToString("0.00"))% </td>
 
                         </tr>

@@ -10,15 +10,7 @@ namespace FinancialServices.Controllers
     public class HomeController : Controller
     {
        
-        private readonly IDatabaseService databaseService;
-
-        public HomeController( IDatabaseService _databaseService)
-        {        
-            databaseService = _databaseService;
-        }
-
-
-
+      
         public  IActionResult Index()
         {
            
@@ -28,8 +20,7 @@ namespace FinancialServices.Controllers
             //    return RedirectToAction("All", "Movies");
             //}
 
-
-            //await databaseService.ImportsEntities();
+     
 
             return View();
         }

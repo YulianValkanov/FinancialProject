@@ -13,6 +13,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IDatabaseService, DatabaseService>();
+            services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IManagerService, ManagerService>();
 
             return services;
 

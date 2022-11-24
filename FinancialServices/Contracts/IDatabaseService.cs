@@ -9,5 +9,19 @@
 
         Task ImportsEntities();
 
+        Task ImportCompanies();
+
+        Task ImportPersons();
+
+        Task ImportManagers();
+
+        Task ImportOwnerPersons();
+
+
+        Task ImportOwnerCompany();
+
+        Task ImportKid();
+
+
     }
 }
