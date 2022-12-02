@@ -28,6 +28,63 @@ namespace FinancialServices.Services
 
 
 
+        public async Task<Company> GetCompanyAsync(long idEik)
+        {
+            var company = await context.Companies
+                .Include(x => x.MapingManagers)
+                    .ThenInclude(x => x.Person)
+                .Include(x => x.MapingOwnerPersons)
+                    .ThenInclude(x => x.Person)
+                .Where(x => x.IdEik == idEik).
+                FirstOrDefaultAsync();
+
+            //if (company == null)
+            //{
+            //    throw new ArgumentException("Invalid EIK");
+            //}
+
+
+            return company;
+        }
+
+
+
+        public async Task<CompanyInfoViewModel> CompanyDetailsById(long idEik)
+        {
+
+            var company = await GetCompanyAsync(idEik);
+
+            List<Person> managers = await GetManagersAsync(idEik);
+
+            List<MapingOwnerCompany> mapingOwnerCompanys = await GetCompanyOwnersDataAsync(idEik);
+
+            List<Company> ownersCompanys = await GetCompanyOwnersAsync(mapingOwnerCompanys);
+
+            CompanyInfoViewModel model = new CompanyInfoViewModel
+            {
+                IdEik = company.IdEik,
+                CompanyName = company.CompanyName,
+                AddressCompany = company.AddressCompany,
+                AddressActivity = company.AddressActivity,
+                KidNumber = company.KidNumber != null && company.KidNumber.Count() == 4 ? company.KidNumber.ToString() + "0" : company.KidNumber,
+                Representing = company.Representing,
+                TypeRepresenting = company.TypeRepresenting,
+                TypeCompany = company.TypeCompany,
+                ContactName = company.ContactName,
+                PhoneNumber = company.PhoneNumber,
+                Email = company.Email,
+                Status = company.Status,
+                Managers = managers,
+                OwnersPersons = company.MapingOwnerPersons.Select(x => x.Person).ToList<Person>(),
+                OwnersCompaniesData = mapingOwnerCompanys,
+                OwnersCompanies = ownersCompanys
+
+            };
+
+            return model;
+          
+        }
+
         public async Task AddCompanyAsync(AddCompaniesViewModel model)
         {
             string kid = model.KidNumber;
@@ -165,24 +222,7 @@ namespace FinancialServices.Services
 
         }
 
-        public async Task<Company> GetCompanyAsync(long idEik)
-        {
-            var company = await context.Companies
-                .Include(x => x.MapingManagers)
-                    .ThenInclude(x => x.Person)
-                .Include(x => x.MapingOwnerPersons)
-                    .ThenInclude(x => x.Person)
-                .Where(x => x.IdEik == idEik).
-                FirstOrDefaultAsync();
-
-            if (company == null)
-            {
-                throw new ArgumentException("Invalid EIK");
-            }
-
-
-            return company;
-        }
+       
 
         public async Task<List<MapingOwnerCompany>> GetCompanyOwnersDataAsync(long idEik)
         {
@@ -394,7 +434,7 @@ namespace FinancialServices.Services
             //        break;
             //}
 
-
+            
 
             var result = await companies
                 .Select(c => new AllViewModel()
@@ -413,5 +453,6 @@ namespace FinancialServices.Services
             return result;
         }
 
+       
     }
 }

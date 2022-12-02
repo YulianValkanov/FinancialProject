@@ -1,7 +1,9 @@
 using FinancialServices.Data;
 using FinancialServices.Data.Models;
 using FinancialServices.ModelBinders;
+
 using Microsoft.EntityFrameworkCore;
+using Theatre.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,7 @@ builder.Services.AddControllersWithViews()
      .AddMvcOptions(options =>
      {
          options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+         options.ModelBinderProviders.Insert(0, new DoubleModelBinderProvider());
      });
 
 builder.Services.AddApplicationServices();
@@ -60,25 +63,33 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
 
-app.MapControllerRoute(
-    name: "Administration",
-    pattern: "{area:exists}/{controller=Administration}/{action=Index}/{id?}");
-
-
-
-app.MapControllerRoute(
+    endpoints.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{idEik?}");
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Company}/{action=CompanyInfo}/{idEik?}");
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Administration}/{action=Index}/{idEik?}");
+
+    endpoints.MapControllerRoute(
+          name: "houseDetails",
+          pattern: "Company/Details/{idEik}"
+        );
+
+    //app.MapControllerRoute(
+    //    name: "info",
+    //    pattern: "{controller=Company}/{action=CompanyInfo}/{idEik?}");
+
+
+    endpoints.MapRazorPages();
+
+});
 
 
 
 
-
-app.MapRazorPages();
 
 app.Run();

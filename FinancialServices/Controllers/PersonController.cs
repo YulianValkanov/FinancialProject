@@ -10,15 +10,11 @@ namespace FinancialServices.Controllers
 
         private readonly IPersonService personService;
 
-
-
         public PersonController(IPersonService _personService)
         {
             personService = _personService;
 
         }
-
-
 
         [HttpGet]
         public async Task<IActionResult> Add()

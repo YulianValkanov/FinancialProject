@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialServices.Controllers
 {
-    public class ManagerController : Controller
+    public class OwnerPersonController : Controller
     {
 
-        private readonly IManagerService managerService;
+        private readonly IOwnerPersonService managerService;
 
-        public ManagerController(IManagerService _managerService)
+        public OwnerPersonController(IOwnerPersonService _managerService)
         {
             managerService = _managerService;
 
@@ -21,14 +21,14 @@ namespace FinancialServices.Controllers
         [HttpGet]
         public async Task<IActionResult> Add(long idEik)
         {
-            var model = new AddManagerViewModel();
+            var model = new AddOwnerPersonViewModel();
 
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(long idEik,AddManagerViewModel model)
+        public async Task<IActionResult> Add(long idEik, AddOwnerPersonViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -37,9 +37,9 @@ namespace FinancialServices.Controllers
 
             try
             {
-                await managerService.AddManagerAsync( idEik,model);
+                await managerService.AddOwnerAsync( idEik,model);
 
-                TempData[MessageConstants.SiccessMessage] = "Успешно добавихте мениджър";
+                TempData[MessageConstants.SiccessMessage] = "Успешно добавихте soсобственик Ф.Л.";
 
                 return RedirectToAction("Details","Company", new { idEik = idEik });
             }
@@ -47,7 +47,7 @@ namespace FinancialServices.Controllers
             {
                 ModelState.AddModelError("", "Something went wrong");
 
-                TempData[MessageConstants.WarningMessage] = "Липсва мениджър с това ЕГН във базата";
+                TempData[MessageConstants.WarningMessage] = "Липсва собственик Ф.Л. с това ЕГН във базата";
 
                 return View(model);
             }
@@ -57,17 +57,20 @@ namespace FinancialServices.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(long idEik)
         {
-            var model = new AddManagerViewModel();
+            var model = new AddOwnerPersonViewModel();
 
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(long idEik, AddManagerViewModel model)
+        public async Task<IActionResult> Delete(long idEik, AddOwnerPersonViewModel model)
         {
             if (!ModelState.IsValid)
             {
+
+                TempData[MessageConstants.WarningMessage] = "Модела е невалиден";
+
                 return View(model);
             }
 
@@ -75,7 +78,7 @@ namespace FinancialServices.Controllers
             {
                 await managerService.DeleteAsync(idEik, model.IdEgn);
 
-                TempData[MessageConstants.SiccessMessage] = "Успешно изтрихте мениджър";
+                TempData[MessageConstants.SiccessMessage] = "Успешно изтрихте собственик Ф.Л.";
 
 
 

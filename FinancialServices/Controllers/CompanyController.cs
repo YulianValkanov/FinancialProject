@@ -14,30 +14,25 @@ namespace FinancialServices.Controllers
     {
         private readonly ICompanyService companyService;
      
-
-
         public CompanyController(ICompanyService _movieService)
         {
+
             companyService = _movieService;
           
-        }
-         
+        }        
 
-        [HttpGet]
-        public async Task<IActionResult> All()
-        {
-            var model = await companyService.GetAllAsync();
+        //[HttpGet]
+        //public async Task<IActionResult> All()
+        //{
+        //    var model = await companyService.GetAllAsync();
 
-
-
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         [HttpGet]
         public async Task<IActionResult> Add()
         {
             var model = new AddCompaniesViewModel();
-
 
             return View(model);
         }
@@ -60,7 +55,7 @@ namespace FinancialServices.Controllers
             }
             catch (Exception)
             {
-                ModelState.AddModelError("", "Something went wrong");
+                ModelState.AddModelError("", "Something went wrong with Adding company");
 
                 return View(model);
             }
@@ -69,7 +64,6 @@ namespace FinancialServices.Controllers
 
         public async Task<IActionResult> Edit(long idEik)
         {
-
             var company = await companyService.GetCompanyAsync(idEik);
 
             AddCompaniesViewModel model = new AddCompaniesViewModel
@@ -88,11 +82,8 @@ namespace FinancialServices.Controllers
                 Status = company.Status,
             };
 
-          
-
             return View(model);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Edit(long idEik, AddCompaniesViewModel model)
@@ -103,56 +94,77 @@ namespace FinancialServices.Controllers
             }
 
             try
-            {            
+            {
                 await companyService.EditCompanyAsync(idEik, model);
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно редактирахте фирма";
 
-                return RedirectToAction(nameof(All));
+                return RedirectToAction(nameof(Details), new { idEik = model.IdEik });
             }
             catch (Exception)
             {
-                ModelState.AddModelError("", "Something went wrong");
+                ModelState.AddModelError("", "Something went wrong with editing");
 
                 return View(model);
             }
         }
 
 
-        public async Task<IActionResult> CompanyInfo(long idEik)
+
+        [AllowAnonymous]
+        public async Task<IActionResult> Details(long idEik)
+        
         {
-            var company = await companyService.GetCompanyAsync(idEik);
+           var company= await companyService.GetCompanyAsync(idEik);
 
-           List<Person> managers = await companyService.GetManagersAsync(idEik);
-
-           List<MapingOwnerCompany> mapingOwnerCompanys = await companyService.GetCompanyOwnersDataAsync(idEik);
-
-            List<Company> ownersCompanys =  await companyService.GetCompanyOwnersAsync(mapingOwnerCompanys);
-
-            CompanyInfoViewModel model = new CompanyInfoViewModel
+            if (company == null)
             {
-                IdEik = company.IdEik,
-                CompanyName = company.CompanyName,
-                AddressCompany = company.AddressCompany,
-                AddressActivity = company.AddressActivity,
-                KidNumber = company.KidNumber != null && company.KidNumber.Count() == 4 ? company.KidNumber.ToString() + "0" : company.KidNumber,
-                Representing = company.Representing,
-                TypeRepresenting = company.TypeRepresenting,
-                TypeCompany = company.TypeCompany,
-                ContactName = company.ContactName,
-                PhoneNumber = company.PhoneNumber,
-                Email = company.Email,
-                Status = company.Status,      
-                Managers = managers,
-                OwnersPersons=company.MapingOwnerPersons.Select(x=>x.Person).ToList<Person>(),
-                OwnersCompaniesData = mapingOwnerCompanys,
-                OwnersCompanies= ownersCompanys
+                TempData[MessageConstants.WarningMessage] = "Няма фирма с такова ЕИК";
 
-            };
+                return RedirectToAction(nameof(All));
 
+            }
 
+            var model = await companyService.CompanyDetailsById(idEik);
+          
             return View(model);
         }
+
+
+        //public async Task<IActionResult> CompanyInfo(long idEik)
+        //{
+        //    var company = await companyService.GetCompanyAsync(idEik);
+
+        //   List<Person> managers = await companyService.GetManagersAsync(idEik);
+
+        //   List<MapingOwnerCompany> mapingOwnerCompanys = await companyService.GetCompanyOwnersDataAsync(idEik);
+
+        //    List<Company> ownersCompanys =  await companyService.GetCompanyOwnersAsync(mapingOwnerCompanys);
+
+        //    CompanyInfoViewModel model = new CompanyInfoViewModel
+        //    {
+        //        IdEik = company.IdEik,
+        //        CompanyName = company.CompanyName,
+        //        AddressCompany = company.AddressCompany,
+        //        AddressActivity = company.AddressActivity,
+        //        KidNumber = company.KidNumber != null && company.KidNumber.Count() == 4 ? company.KidNumber.ToString() + "0" : company.KidNumber,
+        //        Representing = company.Representing,
+        //        TypeRepresenting = company.TypeRepresenting,
+        //        TypeCompany = company.TypeCompany,
+        //        ContactName = company.ContactName,
+        //        PhoneNumber = company.PhoneNumber,
+        //        Email = company.Email,
+        //        Status = company.Status,      
+        //        Managers = managers,
+        //        OwnersPersons=company.MapingOwnerPersons.Select(x=>x.Person).ToList<Person>(),
+        //        OwnersCompaniesData = mapingOwnerCompanys,
+        //        OwnersCompanies= ownersCompanys
+
+        //    };
+
+
+        //    return View(model);
+        //}
 
 
         [HttpPost]
@@ -173,67 +185,27 @@ namespace FinancialServices.Controllers
 
             TempData[MessageConstants.WarningMessage] = "Успешно деактивирахте фирма";
 
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(Details), new { idEik = idEik });
         }
-
-
 
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> AllFilter([FromQuery] AllQueryModel query)
+        public async Task<IActionResult> All([FromQuery] AllQueryModel query)
         {
             var comp = await companyService.AllFilter(
-                query.Eik,
+                query.Eik.ToString(),
                 query.CompanyName,
                 query.Kid,
                 query.Group
                 );
-
-           
+         
             query.Companyes = comp;
 
             return View(query);
         }
 
-
-
-
-
-
     }
-
-    //public async Task<IActionResult> AddToCollection(int movieId)
-    //{
-    //    try
-    //    {
-    //        var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-    //        await movieService.AddMovieToCollectionAsync(movieId, userId);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-
-    //    return RedirectToAction(nameof(All));
-    //}
-
-    //public async Task<IActionResult> Watched()
-    //{
-    //    var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-    //    var model = await movieService.GetWatchedAsync(userId);
-
-    //    return View("Mine", model);
-    //}
-
-    //public async Task<IActionResult> RemoveFromCollection(int movieId)
-    //{
-    //    var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-    //    await movieService.RemoveMovieFromCollectionAsync(movieId, userId);
-
-    //    return RedirectToAction(nameof(Watched));
-    //}}
-
 
 
 }

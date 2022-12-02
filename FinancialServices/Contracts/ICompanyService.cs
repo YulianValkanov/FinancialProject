@@ -22,6 +22,8 @@ namespace FinancialServices.Contracts
 
         Task DeactivateAsync(long idEik);
 
+        Task<CompanyInfoViewModel> CompanyDetailsById(long idEik);
+
 
         Task EditCompanyAsync(long idEik,AddCompaniesViewModel model);
 

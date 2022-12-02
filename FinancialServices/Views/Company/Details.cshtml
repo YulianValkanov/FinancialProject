@@ -75,8 +75,8 @@
                     <td><b> Представляващи:</b></td>
                     <td>                  
                             <a asp-controller="Manager" asp-action="Add" asp-route-IdEik="@Model.IdEik"  method="post">Добави</a>
-                       
-                            <a asp-controller="Manager" asp-action="Edit" asp-route-IdEik="@Model.IdEik"  method="post">Изтрий</a>                    
+
+                          <a asp-controller="Manager" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>
                     </td>
                 </tr>
 
@@ -91,14 +91,19 @@
 
                 <tr>
                     <td><b> Собственици физически лица:</b></td>
-                    <td></td>
+                    <td>
+                        <a asp-controller="OwnerPerson" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
+
+                        <a asp-controller="OwnerPerson" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>
+
+                    </td>
                 </tr>
 
                 @foreach (var owner in Model.OwnersPersons)
                 {
                     <tr>
                         <td>Собственик</td>
-                        <td>ЕГН: @owner.FirstName @owner.LastName</td>
+                        <td>ЕГН: @owner.IdEgn @owner.FirstName @owner.LastName</td>
                         <td>@owner.MapingOwnerPersons.Select(x=>x.Persent*100).FirstOrDefault()% </td>
 
                     </tr>

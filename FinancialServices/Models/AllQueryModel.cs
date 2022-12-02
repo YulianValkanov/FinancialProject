@@ -4,8 +4,11 @@ namespace FinancialServices.Models
 {
     public class AllQueryModel
     {
+
+        
+
         [DisplayName("ЕИК")]
-        public string? Eik { get; set; }
+        public long? Eik { get; set; }
 
         [DisplayName("Фирма")]
         public string? CompanyName { get; set; }
