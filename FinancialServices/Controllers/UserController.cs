@@ -102,7 +102,7 @@ namespace FinancialServices.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("AllFilter", "Company");
+                    return RedirectToAction("All", "Company");
                 }
             }
 
