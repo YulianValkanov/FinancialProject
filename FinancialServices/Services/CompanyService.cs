@@ -453,6 +453,16 @@ namespace FinancialServices.Services
             return result;
         }
 
-       
+        public async Task<bool> isCompanyExist(long idEik)
+        {
+         var company=  await repo.AllReadonly<Company>().FirstOrDefaultAsync(c=>c.IdEik == idEik);
+
+            if (company==null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

@@ -111,7 +111,12 @@
 
                 <tr>
                     <td><b> Собственици юридически лица:</b></td>
-                    <td></td>
+                    <td>
+                        <a asp-controller="OwnerCompany" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
+
+                        <a asp-controller="OwnerCompany" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>
+
+                    </td>
                 </tr>
 
 

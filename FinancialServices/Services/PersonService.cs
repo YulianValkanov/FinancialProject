@@ -2,6 +2,7 @@
 using FinancialServices.Contracts;
 using FinancialServices.Data.Common;
 using FinancialServices.Models.Persons;
+using Microsoft.EntityFrameworkCore;
 using Theatre.Data.Models;
 
 
@@ -50,6 +51,18 @@ namespace FinancialServices.Services
             //}
 
             
+        }
+
+        public async Task<bool> isPersonExist(long idEgn)
+        {
+            var person = await repo.AllReadonly<Person>().FirstOrDefaultAsync(c => c.IdEgn == idEgn);
+
+            if (person == null)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

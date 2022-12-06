@@ -13,6 +13,8 @@ namespace FinancialServices.Contracts
 
         Task<List< MapingOwnerCompany>> GetCompanyOwnersDataAsync(long idEik);
 
+        Task <bool>  isCompanyExist(long idEik);
+
         Task<List<Company>> GetCompanyOwnersAsync(List<MapingOwnerCompany> ownersCompanydata);
     
 

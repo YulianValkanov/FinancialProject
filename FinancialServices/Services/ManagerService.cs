@@ -21,18 +21,17 @@ namespace FinancialServices.Services
             repo = _repo;
         }
 
-
         public async Task AddManagerAsync(long idEik,AddManagerViewModel model)
-        {
-            
-            var entity = new MapingManager()
-            {
-                IdEgn = model.IdEgn,
-                IdEik = idEik
-            };
+        {           
+                var entity = new MapingManager()
+                {
+                    IdEgn = model.IdEgn,
+                    IdEik = idEik
+                };
 
-            await repo.AddAsync<MapingManager>(entity);
-            await repo.SaveChangesAsync();
+                await repo.AddAsync<MapingManager>(entity);
+                await repo.SaveChangesAsync();
+                      
         }
 
         public async Task DeleteAsync(long idEik, long idEgn)

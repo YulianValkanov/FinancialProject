@@ -9,13 +9,13 @@ using Theatre.Data.Models;
 
 namespace FinancialServices.Services
 {
-    public class OwnerPersonService : IOwnerPersonService
+    public class OwnerCompanyService : IOwnerCompanyService
     {
 
         private readonly IRepository repo;
         private readonly FinanceDbContext context;
 
-        public OwnerPersonService(
+        public OwnerCompanyService(
            
             IRepository _repo)
         {
@@ -23,33 +23,31 @@ namespace FinancialServices.Services
             repo = _repo;
         }
 
-
-        public async Task AddOwnerAsync(long idEik,AddOwnerPersonViewModel model)
+        public async Task AddOwnerAsync(long idEik,AddOwnerCompanyViewModel model)
         {
            
             double persent = model.Persent/100;
 
-            var entity = new MapingOwnerPerson()
-            {
-                IdEgn = model.IdEgn,
+            var entity = new MapingOwnerCompany()
+            {             
                 IdEik = idEik,
+                IdEikOwner=model.OwnerEik,
                 Persent = persent
 
             };
-
-            await repo.AddAsync<MapingOwnerPerson >(entity);
+            await repo.AddAsync<MapingOwnerCompany >(entity);
             await repo.SaveChangesAsync();
         }
 
      
 
-        public async Task DeleteAsync(long idEik, long idEgn)
+        public async Task DeleteAsync(long idEik, long ownerEik)
         {       
-            var mapingOwnerPerson = await repo.AllReadonly<MapingOwnerPerson >().FirstOrDefaultAsync(x => x.IdEgn == idEgn && x.IdEik == idEik);
+            var mapingOwnerCompany = await repo.AllReadonly<MapingOwnerCompany >().FirstOrDefaultAsync(x => x.IdEik == idEik && x.IdEikOwner == ownerEik);
 
-            if (mapingOwnerPerson != null)
+            if (mapingOwnerCompany != null)
             {
-                repo.Delete<MapingOwnerPerson>(mapingOwnerPerson);
+                repo.Delete<MapingOwnerCompany>(mapingOwnerCompany);
 
                 await repo.SaveChangesAsync();
             }

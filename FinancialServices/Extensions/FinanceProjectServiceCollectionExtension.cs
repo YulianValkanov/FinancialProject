@@ -16,6 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IManagerService, ManagerService>();
             services.AddScoped<IOwnerPersonService, OwnerPersonService>();
+            services.AddScoped<IOwnerCompanyService, OwnerCompanyService>();
 
             return services;
 

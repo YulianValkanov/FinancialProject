@@ -2,6 +2,7 @@
 using FinancialServices.Contracts;
 using FinancialServices.Models;
 using FinancialServices.Models.Persons;
+using FinancialServices.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialServices.Controllers
@@ -11,18 +12,21 @@ namespace FinancialServices.Controllers
 
         private readonly IOwnerPersonService managerService;
 
-        public OwnerPersonController(IOwnerPersonService _managerService)
+        private readonly IPersonService personService;
+
+        public OwnerPersonController(
+            IOwnerPersonService _managerService,
+            IPersonService _personService)
         {
             managerService = _managerService;
+            personService = _personService;
 
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Add(long idEik)
         {
             var model = new AddOwnerPersonViewModel();
-
 
             return View(model);
         }
@@ -35,22 +39,33 @@ namespace FinancialServices.Controllers
                 return View(model);
             }
 
-            try
+            if (await personService.isPersonExist(model.IdEgn) == true)
             {
-                await managerService.AddOwnerAsync( idEik,model);
+                try
+                {
+                    await managerService.AddOwnerAsync(idEik, model);
 
-                TempData[MessageConstants.SiccessMessage] = "Успешно добавихте soсобственик Ф.Л.";
+                    TempData[MessageConstants.SiccessMessage] = "Успешно добавихте soсобственик Ф.Л.";
 
-                return RedirectToAction("Details","Company", new { idEik = idEik });
+                    return RedirectToAction("Details", "Company", new { idEik = idEik });
+                }
+                catch (Exception)
+                {
+
+                   TempData[MessageConstants.WarningMessage] = "Вече сте добавили Ф.Л. във фирмата";
+
+                    return View(model);
+                }
+               
+
             }
-            catch (Exception)
+            else
             {
-                ModelState.AddModelError("", "Something went wrong");
-
                 TempData[MessageConstants.WarningMessage] = "Липсва собственик Ф.Л. с това ЕГН във базата";
 
                 return View(model);
             }
+
         }
 
 
@@ -58,7 +73,6 @@ namespace FinancialServices.Controllers
         public async Task<IActionResult> Delete(long idEik)
         {
             var model = new AddOwnerPersonViewModel();
-
 
             return View(model);
         }
@@ -68,31 +82,29 @@ namespace FinancialServices.Controllers
         {
             if (!ModelState.IsValid)
             {
-
                 TempData[MessageConstants.WarningMessage] = "Модела е невалиден";
 
                 return View(model);
             }
 
-            try
+            if (await personService.isPersonExist(model.IdEgn) == true)
             {
                 await managerService.DeleteAsync(idEik, model.IdEgn);
 
-                TempData[MessageConstants.SiccessMessage] = "Успешно изтрихте собственик Ф.Л.";
-
-
+                TempData[MessageConstants.SiccessMessage] = "Успешно изтрихте собственик";
 
                 return RedirectToAction("Details", "Company", new { idEik = idEik });
             }
-            catch (Exception)
+            else
             {
-                ModelState.AddModelError("", "Something went wrong");
-
-                TempData[MessageConstants.WarningMessage] = "Липсва мениджър с това ЕГН във базата";
+                TempData[MessageConstants.WarningMessage] = "Няма човек с такова егн";
 
                 return View(model);
             }
+ 
         }
 
     }
+
 }
+

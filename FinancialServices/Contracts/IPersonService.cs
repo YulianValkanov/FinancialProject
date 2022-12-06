@@ -7,5 +7,8 @@ namespace FinancialServices.Contracts
     {
 
         Task AddPersonAsync(AddPersonViewModel model);
+
+        Task <bool> isPersonExist(long IdEgn);
+
     }
 }
