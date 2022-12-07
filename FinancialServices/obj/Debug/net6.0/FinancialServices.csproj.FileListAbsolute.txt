@@ -550,3 +550,4 @@ D:\Users\User\Desktop\IveniBase\FinancialServices\obj\Debug\net6.0\refint\Financ
 D:\Users\User\Desktop\IveniBase\FinancialServices\obj\Debug\net6.0\FinancialServices.pdb
 D:\Users\User\Desktop\IveniBase\FinancialServices\obj\Debug\net6.0\FinancialServices.genruntimeconfig.cache
 D:\Users\User\Desktop\IveniBase\FinancialServices\obj\Debug\net6.0\ref\FinancialServices.dll
+D:\Users\User\Desktop\IveniBase\FinancialServices\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_AdminLayout.cshtml.rz.scp.css

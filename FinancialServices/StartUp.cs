@@ -1,7 +1,7 @@
 using FinancialServices.Data;
 using FinancialServices.Data.Models;
 using FinancialServices.ModelBinders;
-
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Theatre.Data.Models;
 
@@ -23,6 +23,7 @@ builder.Services.AddDefaultIdentity<User>(options =>
     options.Password.RequireUppercase = false;
 
 })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<FinanceDbContext>();
 
 builder.Services.ConfigureApplicationCookie(options => 
