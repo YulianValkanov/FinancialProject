@@ -48,17 +48,17 @@ namespace FinancialServices.Areas.Administration.Controllers
                 await databaseService.ImportsEntities();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
-
-                return RedirectToAction(nameof(Index));
+               
             }
             catch (Exception)
             {
                 TempData[MessageConstants.ErrorMessage] = "Неуспешно импортиране";
 
                 ModelState.AddModelError("", "Something went wrong");
-
-                return RedirectToAction(nameof(Index));
+             
             }
+            return RedirectToAction(nameof(Index), "Admin");
+
         }
 
         
@@ -69,18 +69,18 @@ namespace FinancialServices.Areas.Administration.Controllers
                 await databaseService.ImportKid();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
-
-                return RedirectToAction(nameof(Index));
+            
             }
             catch (Exception)
             {
                 TempData[MessageConstants.ErrorMessage] = "Неуспешно импортиране";
 
                 ModelState.AddModelError("", "Something went wrong");
-
-                return RedirectToAction(nameof(Index));
+               
             }
-  
+
+            return RedirectToAction(nameof(Index), "Admin");
+
         }
 
 
@@ -93,7 +93,7 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-                return RedirectToAction(nameof(Index));
+              
             }
             catch (Exception)
             {
@@ -101,8 +101,10 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 ModelState.AddModelError("", "Something went wrong");
 
-                return RedirectToAction(nameof(Index));
+              
             }
+
+            return RedirectToAction(nameof(Index), "Admin");
         }
 
 
@@ -114,8 +116,7 @@ namespace FinancialServices.Areas.Administration.Controllers
                 await databaseService.ImportCompanies();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
-
-                return RedirectToAction(nameof(Index));
+return RedirectToAction(nameof(Index));
             }
             catch (Exception)
             {
@@ -123,8 +124,10 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 ModelState.AddModelError("", "Something went wrong");
 
-                return RedirectToAction(nameof(Index));
+              
             }
+
+            return RedirectToAction(nameof(Index), "Admin");
         }
 
 
@@ -137,7 +140,7 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-                return RedirectToAction(nameof(Index));
+                
             }
             catch (Exception)
             {
@@ -145,8 +148,10 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 ModelState.AddModelError("", "Something went wrong");
 
-                return RedirectToAction(nameof(Index));
+               
             }
+
+            return RedirectToAction(nameof(Index), "Admin");
         }
 
 
@@ -159,7 +164,7 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-                return RedirectToAction(nameof(Index));
+               
             }
             catch (Exception)
             {
@@ -167,8 +172,10 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 ModelState.AddModelError("", "Something went wrong");
 
-                return RedirectToAction(nameof(Index));
+              
             }
+
+            return RedirectToAction(nameof(Index), "Admin");
         }
 
         public async Task<IActionResult> ImportOwnerCompany()
@@ -180,7 +187,7 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-                return RedirectToAction(nameof(Index));
+               
             }
             catch (Exception)
             {
@@ -188,8 +195,10 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 ModelState.AddModelError("", "Something went wrong");
 
-                return RedirectToAction(nameof(Index));
+              
             }
+
+            return RedirectToAction(nameof(Index), "Admin");
         }
 
 

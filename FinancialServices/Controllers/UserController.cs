@@ -102,6 +102,13 @@ namespace FinancialServices.Controllers
 
                 if (result.Succeeded)
                 {
+                
+
+                    if (user != null && await userManager.IsInRoleAsync(user, "Administrator"))
+                    {
+                        return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                    }
+
                     return RedirectToAction("All", "Company");
                 }
             }

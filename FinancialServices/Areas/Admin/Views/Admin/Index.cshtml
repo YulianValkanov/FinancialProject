@@ -10,35 +10,44 @@
 
 <div class="row">
 
+    <input type="button" value="Импортитай КИД" onclick="location.href='@Url.Action("ImportKid", "Imports")'" />
 
-
-
-    <input type="button" value="Импортитай КИД" onclick="location.href='Administration/ImportKid'" />
 
     <p></p>
 
 
-    <input type="button" value="Импортитай Физически лица" onclick="location.href='Administration/ImportPersons'" />
+   @* <input type="button" value="Импортитай Физически лица" onclick="location.href='Imports/ImportPersons'" />*@
+
+    <input type="button" value="Импортитай Физически лица" onclick="location.href='@Url.Action("ImportPersons", "Imports")'" />
 
     <p></p>
 
-    <input type="button" value="Импортитай Юридически лица" onclick="location.href='Administration/ImportCompanies'" />
+   @* <input type="button" value="Импортитай Юридически лица" onclick="location.href='Admin/ImportCompanies'" />*@
+
+    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportCompanies", "Imports")'" />
     <p></p>
 
 
-    <input type="button" value="Импортитай Мениджъри" onclick="location.href='Administration/ImportManagers'" />
+    @*<input type="button" value="Импортитай Мениджъри" onclick="location.href='Admin/ImportManagers'" />*@
+
+    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportManagers", "Imports")'" />
     <p></p>
 
 
-    <input type="button" value="Импортитай собственици на компании - ФЛ" onclick="location.href='Administration/ImportOwnerPersons'" />
+   @* <input type="button" value="Импортитай собственици на компании - ФЛ" onclick="location.href='Admin/ImportOwnerPersons'" />*@
+
+    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportOwnerPersons", "Imports")'" />
+    <p></p>
+
+   @* <input type="button" value="Импортитай собственици на компании - ЮЛ" onclick="location.href='Admin/ImportOwnerCompany'" />*@
+
+    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportOwnerCompany", "Imports")'" />
 
     <p></p>
 
-    <input type="button" value="Импортитай собственици на компании - ЮЛ" onclick="location.href='Administration/ImportOwnerCompany'" />
+    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("Import", "Imports")'" />
 
-    <p></p>
-
-    <input type="button" value="Импортирай вскички накуп" onclick="location.href='Administration/Import'" />
+   @* <input type="button" value="Импортирай вскички накуп" onclick="location.href='Admin/Import'" />*@
 
 
 
