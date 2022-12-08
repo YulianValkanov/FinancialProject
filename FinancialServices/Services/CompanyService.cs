@@ -1,7 +1,7 @@
 ﻿using FinancialServices.Contracts;
 using FinancialServices.Data;
 using FinancialServices.Data.Common;
-using FinancialServices.Models;
+using FinancialServices.Models.Companies;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel;

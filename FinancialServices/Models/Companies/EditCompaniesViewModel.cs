@@ -1,13 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Theatre.Data.Models;
-using FinancialServices.Data.Models;
 
-namespace FinancialServices.Models
+namespace FinancialServices.Models.Companies
 {
-    public class CompanyInfoViewModel
+    public class EditCompaniesViewModel
     {
-       
+
         public long IdEik { get; set; }
 
         public string? CompanyName { get; set; }
@@ -32,16 +31,6 @@ namespace FinancialServices.Models
 
         public string? Status { get; set; }
 
-
-        public List<Person>? Managers { get; set; }
-
-        public List<Person> OwnersPersons { get; set; } = new List<Person>();
-
-        public List<MapingOwnerCompany> OwnersCompaniesData { get; set; } = new List<MapingOwnerCompany>();
-
-        public List<Company> OwnersCompanies { get; set; } = new List<Company>();
-
-        public List<ReportData> Reports { get; set; } = new List<ReportData>();
 
 
 

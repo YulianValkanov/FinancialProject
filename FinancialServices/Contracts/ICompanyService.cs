@@ -1,7 +1,7 @@
 ﻿using Theatre.Data.Models;
 using FinancialServices.Data.Models;
-using FinancialServices.Models;
 using FinancialServices.Services;
+using FinancialServices.Models.Companies;
 
 namespace FinancialServices.Contracts
 {

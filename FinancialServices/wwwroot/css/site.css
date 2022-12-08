@@ -16,3 +16,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+#homePage {
+ 
+    margin-top: 50px;
+    text-align: left;
+   
+}
+
+#invest {
+    margin-bottom: 10px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.clickDiv {
+    cursor: pointer;
+    color: #55544f;
+    font-weight: bolder;
+}

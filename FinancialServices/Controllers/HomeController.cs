@@ -14,15 +14,10 @@ namespace FinancialServices.Controllers
         public  IActionResult Index()
         {
            
-
-            //if (User?.Identity?.IsAuthenticated ?? false)
-            //{
-            //    return RedirectToAction("All", "Movies");
-            //}
-
-     
-
             return View();
         }
+
+
+
     }
 }

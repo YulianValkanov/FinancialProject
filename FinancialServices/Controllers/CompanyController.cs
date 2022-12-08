@@ -1,6 +1,6 @@
 ﻿using FinancialServices.Constants;
 using FinancialServices.Contracts;
-using FinancialServices.Models;
+using FinancialServices.Models.Companies;
 using FinancialServices.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -108,10 +108,7 @@ namespace FinancialServices.Controllers
                 return View(model);
             }
         }
-
-
-
-        [AllowAnonymous]
+      
         public async Task<IActionResult> Details(long idEik)
         
         {
@@ -189,8 +186,7 @@ namespace FinancialServices.Controllers
         }
 
 
-        [HttpGet]
-        [AllowAnonymous]
+        [HttpGet]    
         public async Task<IActionResult> All([FromQuery] AllQueryModel query)
         {
             var comp = await companyService.AllFilter(

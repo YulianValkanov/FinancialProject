@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 
-namespace FinancialServices.Models
+namespace FinancialServices.Models.Companies
 {
     public class AllQueryModel
     {
 
-        
+
 
         [DisplayName("ЕИК")]
         public long? Eik { get; set; }

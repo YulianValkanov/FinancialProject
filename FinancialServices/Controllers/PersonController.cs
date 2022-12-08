@@ -1,10 +1,12 @@
 ﻿using FinancialServices.Constants;
 using FinancialServices.Contracts;
 using FinancialServices.Models.Persons;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialServices.Controllers
 {
+    [Authorize]
     public class PersonController : Controller
     {
 

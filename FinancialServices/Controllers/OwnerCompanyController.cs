@@ -3,10 +3,12 @@ using FinancialServices.Contracts;
 using FinancialServices.Models;
 using FinancialServices.Models.Persons;
 using FinancialServices.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialServices.Controllers
 {
+    [Authorize]
     public class OwnerCompanyController : Controller
     {
 

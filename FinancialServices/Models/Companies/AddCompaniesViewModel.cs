@@ -1,12 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Theatre.Data.Models;
-
-namespace FinancialServices.Models
+﻿namespace FinancialServices.Models.Companies
 {
-    public class EditCompaniesViewModel
+    public class AddCompaniesViewModel
     {
-       
+
         public long IdEik { get; set; }
 
         public string? CompanyName { get; set; }
@@ -30,9 +26,6 @@ namespace FinancialServices.Models
         public string? Email { get; set; }
 
         public string? Status { get; set; }
-
-
-
 
 
     }

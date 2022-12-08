@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Theatre.Data.Models;
 
-namespace FinancialServices.Models
+namespace FinancialServices.Models.Companies
 {
     public class AllViewModel
     {
-       
+
         public long IdEik { get; set; }
 
         public string? CompanyName { get; set; }
