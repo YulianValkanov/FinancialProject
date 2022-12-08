@@ -40,7 +40,7 @@
 
         <div class="col-md-3">
             <div class="form-group mt-4 p-2">
-                <input type="submit" value="Search" class="btn btn-primary" />
+                <input type="submit" value="Търси" class="btn btn-primary" />
             </div>
         </div>
     </div>
@@ -80,24 +80,11 @@
                             <td>@company.Group</td>
                             <td>@company.GroupName</td>
                             <td>@company.PositionName</td>
-                            <td>
-                             @*   <form class="input-group-sm" asp-route-IdEik="@company.IdEik" asp-controller="Company" asp-action="CompanyInfo" method="post">
-                                    <input type="submit" value="Info" class="fs-6 btn btn-success mb-3 p-2" />
-                                </form>*@
-
-                           @* <a asp-area="" asp-controller="Company" asp-action="CompanyInfo" asp-route-IdEik="@company.IdEik"
-                           class="btn btn-success">Info</a>*@
+                            <td>                       
                            
                                 <a asp-area="" asp-controller="Company" asp-action="Details" asp-route-IdEik="@company.IdEik"
-                           class="btn btn-success">Details</a>
+                           class="btn btn-success">Инфо</a>
                            
-                           
-
-
-                                @*   <form class="input-group-sm" asp-route-IdEik="@company.IdEik" asp-controller="Company" asp-action="Edit" method="post">
-                        <input type="submit" value="Edit" class="fs-6 btn btn-success mb-3 p-2" />
-                        </form>*@
-
                             </td>
                         </tr>
                     }

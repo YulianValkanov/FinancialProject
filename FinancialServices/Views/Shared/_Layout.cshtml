@@ -32,10 +32,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">За Ивени Консулт</a>
                         </li>*@
                         @if (User?.Identity?.IsAuthenticated ?? false)
-                        {
-                           @* <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="All">Клиенти</a>
-                            </li>*@
+                        {                         
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="All"> Клиенти</a>
@@ -49,11 +46,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Person" asp-action="Add">Добави човек</a>
                             </li>
-
-
-                           @* <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="Add">Добави мениджър</a>
-                            </li>*@
+                      
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Импортирай файл</a>

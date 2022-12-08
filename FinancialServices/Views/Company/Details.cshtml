@@ -145,27 +145,16 @@
                    
                 }
 
-@*
-                @foreach (var owner in Model.OwnersCompaniesData)
-                {
-                    <tr>
-                        <td>Собственик</td>
-                        <td>@owner.IdEikOwner @owner.Company.CompanyName</td>
-                        <td>@owner.Persent </td>
-
-                    </tr>
-                }*@
-
 
                 <div class="d-grid gap-2">
-                <a asp-controller="Company" asp-action="Edit" asp-route-IdEik="@Model.IdEik" class="btn btn-warning" method="post">Редактирай данни</a>
+                <a asp-controller="Company" asp-action="Edit" asp-route-IdEik="@Model.IdEik" class="btn btn-warning" method="post">Редактиране на фирма</a>
                 </div>
 
                 <p></p>
 
                 <form class="mt-2" asp-controller="Company" asp-action="Deactivate" asp-route-IdEik="@Model.IdEik">
                     <div class="d-grid gap-2">
-                        <input type="submit" value="Деактивирай" class="btn btn-warning" />
+                        <input type="submit" value="Деактивиране на фирма" class="btn btn-warning" />
                     </div>
                 </form>
 
@@ -173,7 +162,7 @@
 
                 <form class="mt-2" asp-controller="Company" asp-action="Delete" asp-route-IdEik="@Model.IdEik">
                     <div class="d-grid gap-2">
-                        <input type="submit" value="Изтриване на фирмата от базата" class="btn btn-danger" />
+                        <input type="submit" value="Изтриване на фирма" class="btn btn-danger" />
                     </div>
                 </form>
 
