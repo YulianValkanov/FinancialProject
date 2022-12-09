@@ -1,11 +1,13 @@
-﻿namespace FinancialServices.Models.Companies
+﻿using Microsoft.Build.Framework;
+
+namespace FinancialServices.Models.Companies
 {
     public class AddCompaniesViewModel
     {
-
+        [Required]
         public long IdEik { get; set; }
-
-        public string? CompanyName { get; set; }
+        [Required]
+        public string CompanyName { get; set; }
 
         public string? AddressCompany { get; set; }
 

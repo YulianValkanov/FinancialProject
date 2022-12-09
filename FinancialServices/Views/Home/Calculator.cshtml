@@ -1,0 +1,165 @@
+﻿@using FinancialServices.Contracts
+@inject IFormulasService formulaService;
+
+@model CalculatorQueryModel
+
+@{
+    ViewBag.Title = "Кредитен Калкулатор";
+}
+
+
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form method="get">
+    <div class="row">
+        <div class="form-group col-md-3 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="Amount"></label>
+                <input asp-for="Amount" class="form-control" placeholder="...">
+
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label asp-for="Rate"></label>
+            <input asp-for="Rate" class="form-control" placeholder="...">
+        </div>
+
+        <div class="form-group col-md-3">
+            <div class="form-group">
+                <label asp-for="Periods"></label>
+                <input asp-for="Periods" class="form-control" placeholder="...">
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <div class="form-group">
+                <label asp-for="CreditType"></label>
+                <select asp-for="@Model.CreditType" class="form-control">                  
+                    <option> Анюитетни /равни вноски/ </option>
+                    <option> Намаляващи /равни главници/ </option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="form-group mt-4 p-2">
+                <input type="submit" value="Покажи" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="row">
+
+
+    <div class="container">
+        <h3>Погасителен план</h3>
+     
+        <table class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th>Период</th>
+                    <th>Остатък в начало</th>
+                    <th>Лихва</th>
+                    <th>Главница</th>
+                    <th>Месечна вноска </th>
+                    <th>Остатък в края</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <div hidden>
+                    @(Model.FixPrincipals=Model.Amount);
+                </div>
+               
+
+                @for (int period = 1; period <= Model.Periods; period++)
+                {
+                
+                    @*   Help Entitys updates*@
+                    <div hidden>
+
+                       
+                        @if (Model.CreditType=="Анюитетни /равни вноски/")
+                        {
+                            @(Model.Interests = Model.Amount * Model.Rate / 12 / 100);
+                        
+                            @(Model.Principals = Model.Pmt - Model.Interests);
+                          
+                            @(Model.AmountEnd = Model.Amount - Model.Principals);
+
+                        }else if(Model.CreditType=="Намаляващи /равни главници/")
+                        {
+                     
+
+                        @(Model.Interests = Model.Amount * Model.Rate / 12 / 100);
+
+                        @(Model.Principals=Model.FixPrincipals/Model.Periods);
+
+                        @(Model.AmountEnd = Model.Amount - Model.Principals);
+                        }
+
+                        @(Model.SumInterests+=Model.Interests);
+                        @(Model.SumParticipals += Model.Principals);
+                        @(Model.SumPayment +=Model.Interests+  Model.Principals);
+
+                    </div>
+
+
+                    <tr>
+                       @* ПЕРИОДИ*@
+                        <td>@period</td>
+
+                      @*  Сума на кредита в началото на периода*@
+                        <td>@formulaService.FormatThisNumber(Model.Amount)</td>
+
+                        @*Лихви*@
+                        <td>@(formulaService.FormatThisNumber(Model.Interests))</td>
+
+                        @*Главнии*@
+                        <td>@(formulaService.FormatThisNumber(Model.Principals))</td>
+
+                        @*Месечна Вноска*@
+                        <td>@formulaService.FormatThisNumber(Model.Principals+Model.Interests)</td>
+
+                        @*  Сума на кредита в края на периода*@
+                        <td>@formulaService.FormatThisNumber(Model.AmountEnd)</td>
+                       
+                    </tr>
+
+                
+                  <div hidden>
+                    @(Model.Amount = Model.AmountEnd);
+                   </div>
+                }
+
+                <tr>
+                    <th>Общо</th>
+                    <th>@formulaService.FormatThisNumber(Model.Amount)</th>
+                    <th>@formulaService.FormatThisNumber(Model.SumInterests)</th>
+                    <th>@formulaService.FormatThisNumber(Model.SumParticipals)</th>
+                    <th>@formulaService.FormatThisNumber(Model.SumPayment) </th>
+                    <th>@formulaService.FormatThisNumber(Model.AmountEnd)</th>
+                </tr>
+
+               
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
