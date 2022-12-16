@@ -2,6 +2,7 @@
 {
     using FinancialServices.Areas.Administration.Data.DataProcessor.ImportDto;
     using FinancialServices.Data;
+    using FinancialServices.Data.Models;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
@@ -338,6 +339,119 @@
 
             return sb.ToString().TrimEnd();
         }
+
+
+
+        public static string ImportReports(FinanceDbContext context, string jsonString)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            ImportReportDto[] reportDto = JsonConvert.DeserializeObject<ImportReportDto[]>(jsonString);
+
+            HashSet<ReportData> validReports = new HashSet<ReportData>();
+
+            foreach (var report in reportDto)
+            {
+
+
+                if (!IsValid(report))
+                {
+                    sb.AppendLine("Invalid data company!");
+                    continue;
+                }
+
+                //ReportData isReportInValid = validReports.FirstOrDefault(x => x.ReportId == report.ReportId);
+
+                //if (isReportInValid != null)
+                //{
+                //    sb.AppendLine("This Report already exist with the same ReportId");
+                //    continue;
+                //}
+
+
+                ReportData currentReport = new ReportData()
+                {
+
+
+                    IdEik = report.IdEik,
+                    YearReport=2019,
+                   Assets=report.Assets2019,
+                   AnnualTurnover=report.AnnualTurnover2019,
+                   CountOfEmployees=report.NumberEmployees2019
+
+                };
+
+
+                validReports.Add(currentReport);
+
+
+
+                sb.AppendLine($"Successfully imported  {report.IdEik} for year {report.YearReport}");
+            }
+
+            context.AddRange(validReports);
+
+
+
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
+        }
+
+
+        public static string ImportReportsMaping(FinanceDbContext context, string jsonString)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            ImportMapingReports[] mapingReportDto = JsonConvert.DeserializeObject<ImportMapingReports[]>(jsonString);
+
+            HashSet<MapingCompanyReport> validReports = new HashSet<MapingCompanyReport>();
+
+            foreach (var report in mapingReportDto)
+            {
+
+
+                if (!IsValid(report))
+                {
+                    sb.AppendLine("Invalid report!");
+                    continue;
+                }
+
+                MapingCompanyReport isReportValid = validReports.FirstOrDefault(x => x.IdEik == report.IdEik && x.ReportId == report.ReportId);
+
+                if (isReportValid != null)
+                {
+                    sb.AppendLine("This Report Already exist");
+                    continue;
+                }
+
+
+                MapingCompanyReport currentReportMaping = new MapingCompanyReport()
+                {
+                    IdEik = report.IdEik,
+                     ReportId=report.ReportId
+
+                };
+
+
+                validReports.Add(currentReportMaping);
+
+                sb.AppendLine($"Successfully imported  Owner Map!");
+
+                Console.WriteLine($"{currentReportMaping.IdEik} --{currentReportMaping.ReportId}");
+                context.Add(currentReportMaping);
+
+
+                context.SaveChanges();
+
+
+            }
+
+
+
+            return sb.ToString().TrimEnd();
+        }
+
 
 
 

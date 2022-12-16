@@ -5,10 +5,12 @@ using FinancialServices.Models.Persons;
 using FinancialServices.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static FinancialServices.Areas.Administration.Constants.AdminConstants;
 
 namespace FinancialServices.Controllers
 {
     [Authorize]
+    [Authorize(Roles = AdminRolleName)]
     public class OwnerPersonController : Controller
     {
 
@@ -47,7 +49,7 @@ namespace FinancialServices.Controllers
                 {
                     await managerService.AddOwnerAsync(idEik, model);
 
-                    TempData[MessageConstants.SiccessMessage] = "Успешно добавихте soсобственик Ф.Л.";
+                    TempData[MessageConstants.SiccessMessage] = "Успешно добавихте сoсобственик Ф.Л.";
 
                     return RedirectToAction("Details", "Company", new { idEik = idEik });
                 }

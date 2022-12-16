@@ -31,11 +31,6 @@
 
 
 
-
-
-
-
-
         //            })
         //            .ToArray()
         //            .OrderByDescending(x => x.Halls)

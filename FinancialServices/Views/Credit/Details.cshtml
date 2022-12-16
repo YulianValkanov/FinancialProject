@@ -1,0 +1,97 @@
+﻿@using FinancialServices.Models.Credits;
+
+@model DetailsCreditViewModel
+
+
+
+<h2 class="text-center">Информация за кредити на фирма @Model.CompanyName с ЕИК @Model.IdEik</h2>
+
+
+<hr />
+
+<div class="row">
+
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Нoмер на кредита:</th>
+                    @for (var i = 0; i < Model.Credits.Count(); i++)
+                    {
+                        <th scope="col">@Model.Credits.ToList()[i].CreditNumber</th>
+                    }
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Сума на кредита</td>
+                    @for (var i = 0; i < Model.Credits.Count(); i++)
+                    {
+                        <td scope="col">@Model.Credits.ToList()[i].BeginValue</td>
+                    }
+                </tr>
+
+                <tr>
+                    <td>Лихвен%</td>
+                    @for (var i = 0; i < Model.Credits.Count(); i++)
+                    {
+                        <td scope="col">@Model.Credits.ToList()[i].Rate</td>
+                    }
+                </tr>
+
+                <tr>
+                    <td>Остатък на кредита</td>
+                    @for (var i = 0; i < Model.Credits.Count(); i++)
+                    {
+                        <td scope="col">@Model.Credits.ToList()[i].PresentValue</td>
+                    }
+                </tr>
+
+                @if (User.IsInRole(AdminRolleName))
+                {
+                    <tr>
+                        <td></td>
+                        @for (var i = 0; i < Model.Credits.Count(); i++)
+                        {
+                            <td>  <a asp-controller="Credit" asp-action="Edit" asp-route-IdEik="@Model.Credits.ToList()[i].IdEik" asp-route-CreditNumber="@Model.Credits.ToArray()[i].CreditNumber" method="post">Редактирай</a></td>
+                        }
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        @for (var i = 0; i < Model.Credits.Count(); i++)
+                        {
+                            <td>  <a asp-controller="Credit" asp-action="Delete" asp-route-IdEik="@Model.Credits.ToArray()[i].IdEik" asp-route-CreditNumber="@Model.Credits.ToArray()[i].CreditNumber" method="post">Изтрий</a></td>
+                        }
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+
+
+        <p></p>
+
+        @if (User.IsInRole(AdminRolleName))
+        {
+            <div class="d-grid gap-2">
+                <a asp-controller="Credit" asp-action="Add" asp-route-IdEik="@Model.IdEik" class="btn btn-warning" method="post">Добавяне на кредит</a>
+            </div>
+        }
+    </div>
+
+
+
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

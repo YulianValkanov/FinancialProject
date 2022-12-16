@@ -63,8 +63,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Company/Mine.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxNaW5lLmNzaHRtbA==
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Credit/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGl0XEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Credit/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGl0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Credit/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGl0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Home/Calculator.cshtml]
@@ -73,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Home/Msp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNc3AuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Manager/Add.cshtml]
@@ -101,6 +113,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Person/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Person/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEFsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Person/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Report/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Report/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Report/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Users/User/Desktop/IveniBase/FinancialServices/Views/Shared/Error.cshtml]

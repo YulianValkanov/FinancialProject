@@ -22,7 +22,7 @@ namespace FinancialServices.Areas.Administration.Controllers
         }
 
         [HttpGet]
-       
+
         public IActionResult Index()
         {
             //if (User?.Identity?.IsAuthenticated ?? false)
@@ -39,44 +39,44 @@ namespace FinancialServices.Areas.Administration.Controllers
 
 
 
-       
+
         public async Task<IActionResult> Import()
-        {       
-           
+        {
+
             try
             {
                 await databaseService.ImportsEntities();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
-               
+
             }
             catch (Exception)
             {
                 TempData[MessageConstants.ErrorMessage] = "Неуспешно импортиране";
 
                 ModelState.AddModelError("", "Something went wrong");
-             
+
             }
             return RedirectToAction(nameof(Index), "Admin");
 
         }
 
-        
+
         public async Task<IActionResult> ImportKid()
-        {           
+        {
             try
             {
                 await databaseService.ImportKid();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
-            
+
             }
             catch (Exception)
             {
                 TempData[MessageConstants.ErrorMessage] = "Неуспешно импортиране";
 
                 ModelState.AddModelError("", "Something went wrong");
-               
+
             }
 
             return RedirectToAction(nameof(Index), "Admin");
@@ -86,14 +86,14 @@ namespace FinancialServices.Areas.Administration.Controllers
 
 
         public async Task<IActionResult> ImportPersons()
-        {          
+        {
             try
             {
                 await databaseService.ImportPersons();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-              
+
             }
             catch (Exception)
             {
@@ -101,7 +101,7 @@ namespace FinancialServices.Areas.Administration.Controllers
 
                 ModelState.AddModelError("", "Something went wrong");
 
-              
+
             }
 
             return RedirectToAction(nameof(Index), "Admin");
@@ -110,13 +110,13 @@ namespace FinancialServices.Areas.Administration.Controllers
 
         public async Task<IActionResult> ImportCompanies()
         {
-           
+
             try
             {
                 await databaseService.ImportCompanies();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
-return RedirectToAction(nameof(Index));
+         
             }
             catch (Exception)
             {
@@ -124,7 +124,7 @@ return RedirectToAction(nameof(Index));
 
                 ModelState.AddModelError("", "Something went wrong");
 
-              
+
             }
 
             return RedirectToAction(nameof(Index), "Admin");
@@ -133,14 +133,14 @@ return RedirectToAction(nameof(Index));
 
         public async Task<IActionResult> ImportManagers()
         {
-           
+
             try
             {
                 await databaseService.ImportManagers();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-                
+
             }
             catch (Exception)
             {
@@ -148,7 +148,7 @@ return RedirectToAction(nameof(Index));
 
                 ModelState.AddModelError("", "Something went wrong");
 
-               
+
             }
 
             return RedirectToAction(nameof(Index), "Admin");
@@ -157,14 +157,14 @@ return RedirectToAction(nameof(Index));
 
         public async Task<IActionResult> ImportOwnerPersons()
         {
-           
+
             try
             {
                 await databaseService.ImportOwnerPersons();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-               
+
             }
             catch (Exception)
             {
@@ -172,7 +172,7 @@ return RedirectToAction(nameof(Index));
 
                 ModelState.AddModelError("", "Something went wrong");
 
-              
+
             }
 
             return RedirectToAction(nameof(Index), "Admin");
@@ -180,14 +180,14 @@ return RedirectToAction(nameof(Index));
 
         public async Task<IActionResult> ImportOwnerCompany()
         {
-           
+
             try
             {
                 await databaseService.ImportOwnerCompany();
 
                 TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
 
-               
+
             }
             catch (Exception)
             {
@@ -195,14 +195,56 @@ return RedirectToAction(nameof(Index));
 
                 ModelState.AddModelError("", "Something went wrong");
 
-              
+
             }
 
             return RedirectToAction(nameof(Index), "Admin");
         }
 
 
+        public async Task<IActionResult> ImportReports()
+        {
 
+            try
+            {
+                await databaseService.ImportReports();
+
+                TempData[MessageConstants.SiccessMessage] = "Успешно импортиране";
+                
+            }
+            catch (Exception)
+            {
+                TempData[MessageConstants.ErrorMessage] = "Неуспешно импортиране";
+
+                ModelState.AddModelError("", "Something went wrong");
+
+
+            }
+
+            return RedirectToAction(nameof(Index), "Admin");
+        }
+
+        public async Task<IActionResult> ImportReportsMaping()
+        {
+
+            try
+            {
+                await databaseService.ImportReportsMaping();
+
+                TempData[MessageConstants.SiccessMessage] = "Успешно импортиране на мапваща таблица с репорти";
+
+            }
+            catch (Exception)
+            {
+                TempData[MessageConstants.ErrorMessage] = "Неуспешно импортиране на мапваща таблица с репорти";
+
+                ModelState.AddModelError("", "Something went wrong");
+
+
+            }
+
+            return RedirectToAction(nameof(Index), "Admin");
+        }
 
     }
 }

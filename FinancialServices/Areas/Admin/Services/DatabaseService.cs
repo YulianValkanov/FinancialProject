@@ -8,7 +8,7 @@ namespace FinancialServices.Areas.Administration.Services
     {
         private readonly FinanceDbContext context;
 
-        string baseDir = "../FinancialServices/Areas/Administration/Data/Datasets/";
+        string baseDir = "../FinancialServices/Areas/Admin/Data/Datasets/";
 
         public DatabaseService(FinanceDbContext _context)
         {
@@ -53,7 +53,19 @@ namespace FinancialServices.Areas.Administration.Services
            File.ReadAllText(baseDir + "CompayesOwner.json"));
         }
 
-       
+        public async Task ImportReports()
+        {
+            Data.DataProcessor.Deserializer.ImportReports(context,
+           File.ReadAllText(baseDir + "Reports.json"));
+        }
+
+        public async Task ImportReportsMaping()
+        {
+            Data.DataProcessor.Deserializer.ImportReportsMaping(context,
+           File.ReadAllText(baseDir + "ReportsMaping.json"));
+        }
+
+
 
 
         // ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
@@ -106,8 +118,6 @@ namespace FinancialServices.Areas.Administration.Services
 
         public async Task ImportsEntities()
         {
-
-            string baseDir = "../FinancialServices/Areas/Administration/Data/Datasets/";
 
             Data.DataProcessor.Deserializer.ImportKids(context,
                    File.ReadAllText(baseDir + "KID_2008.json"));

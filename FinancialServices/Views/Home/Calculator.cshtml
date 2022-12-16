@@ -119,19 +119,19 @@
                         <td>@period</td>
 
                       @*  Сума на кредита в началото на периода*@
-                        <td>@formulaService.FormatThisNumber(Model.Amount)</td>
+                        <td>@formulaService.FormatNumbersAddSpace(Model.Amount)</td>
 
                         @*Лихви*@
-                        <td>@(formulaService.FormatThisNumber(Model.Interests))</td>
+                        <td>@(formulaService.FormatNumbersAddSpace(Model.Interests))</td>
 
                         @*Главнии*@
-                        <td>@(formulaService.FormatThisNumber(Model.Principals))</td>
+                        <td>@(formulaService.FormatNumbersAddSpace(Model.Principals))</td>
 
                         @*Месечна Вноска*@
-                        <td>@formulaService.FormatThisNumber(Model.Principals+Model.Interests)</td>
+                        <td>@formulaService.FormatNumbersAddSpace(Model.Principals+Model.Interests)</td>
 
                         @*  Сума на кредита в края на периода*@
-                        <td>@formulaService.FormatThisNumber(Model.AmountEnd)</td>
+                        <td>@formulaService.FormatNumbersAddSpace(Model.AmountEnd)</td>
                        
                     </tr>
 
@@ -143,11 +143,11 @@
 
                 <tr>
                     <th>Общо</th>
-                    <th>@formulaService.FormatThisNumber(Model.Amount)</th>
-                    <th>@formulaService.FormatThisNumber(Model.SumInterests)</th>
-                    <th>@formulaService.FormatThisNumber(Model.SumParticipals)</th>
-                    <th>@formulaService.FormatThisNumber(Model.SumPayment) </th>
-                    <th>@formulaService.FormatThisNumber(Model.AmountEnd)</th>
+                    <th>@formulaService.FormatNumbersAddSpace(Model.Amount)</th>
+                    <th>@formulaService.FormatNumbersAddSpace(Model.SumInterests)</th>
+                    <th>@formulaService.FormatNumbersAddSpace(Model.SumParticipals)</th>
+                    <th>@formulaService.FormatNumbersAddSpace(Model.SumPayment) </th>
+                    <th>@formulaService.FormatNumbersAddSpace(Model.AmountEnd)</th>
                 </tr>
 
                

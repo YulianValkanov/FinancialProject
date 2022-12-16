@@ -22,6 +22,10 @@
 
         Task ImportKid();
 
+        Task ImportReports();
+
+        Task ImportReportsMaping();
+
 
     }
 }

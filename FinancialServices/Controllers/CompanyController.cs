@@ -4,7 +4,7 @@ using FinancialServices.Models.Companies;
 using FinancialServices.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Theatre.Data.Models;
+using static FinancialServices.Areas.Administration.Constants.AdminConstants;
 
 
 namespace FinancialServices.Controllers
@@ -20,16 +20,10 @@ namespace FinancialServices.Controllers
             companyService = _movieService;
           
         }        
-
-        //[HttpGet]
-        //public async Task<IActionResult> All()
-        //{
-        //    var model = await companyService.GetAllAsync();
-
-        //    return View(model);
-        //}
+       
 
         [HttpGet]
+        [Authorize(Roles = AdminRolleName)]
         public async Task<IActionResult> Add()
         {
             var model = new AddCompaniesViewModel();
@@ -38,6 +32,7 @@ namespace FinancialServices.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = AdminRolleName)]
         public async Task<IActionResult> Add(AddCompaniesViewModel model)
         {
             if (!ModelState.IsValid)
@@ -61,7 +56,7 @@ namespace FinancialServices.Controllers
             }
         }
 
-
+        [Authorize(Roles = AdminRolleName)]
         public async Task<IActionResult> Edit(long idEik)
         {
             var company = await companyService.GetCompanyAsync(idEik);
@@ -86,6 +81,7 @@ namespace FinancialServices.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = AdminRolleName)]
         public async Task<IActionResult> Edit(long idEik, AddCompaniesViewModel model)
         {
             if (!ModelState.IsValid)
@@ -128,43 +124,8 @@ namespace FinancialServices.Controllers
         }
 
 
-        //public async Task<IActionResult> CompanyInfo(long idEik)
-        //{
-        //    var company = await companyService.GetCompanyAsync(idEik);
-
-        //   List<Person> managers = await companyService.GetManagersAsync(idEik);
-
-        //   List<MapingOwnerCompany> mapingOwnerCompanys = await companyService.GetCompanyOwnersDataAsync(idEik);
-
-        //    List<Company> ownersCompanys =  await companyService.GetCompanyOwnersAsync(mapingOwnerCompanys);
-
-        //    CompanyInfoViewModel model = new CompanyInfoViewModel
-        //    {
-        //        IdEik = company.IdEik,
-        //        CompanyName = company.CompanyName,
-        //        AddressCompany = company.AddressCompany,
-        //        AddressActivity = company.AddressActivity,
-        //        KidNumber = company.KidNumber != null && company.KidNumber.Count() == 4 ? company.KidNumber.ToString() + "0" : company.KidNumber,
-        //        Representing = company.Representing,
-        //        TypeRepresenting = company.TypeRepresenting,
-        //        TypeCompany = company.TypeCompany,
-        //        ContactName = company.ContactName,
-        //        PhoneNumber = company.PhoneNumber,
-        //        Email = company.Email,
-        //        Status = company.Status,      
-        //        Managers = managers,
-        //        OwnersPersons=company.MapingOwnerPersons.Select(x=>x.Person).ToList<Person>(),
-        //        OwnersCompaniesData = mapingOwnerCompanys,
-        //        OwnersCompanies= ownersCompanys
-
-        //    };
-
-
-        //    return View(model);
-        //}
-
-
         [HttpPost]
+        [Authorize(Roles = AdminRolleName)]
         public async Task< IActionResult> Delete(long idEik)
         {
            await companyService.DeleteAsync(idEik);
@@ -176,6 +137,7 @@ namespace FinancialServices.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = AdminRolleName)]
         public async Task<IActionResult> Deactivate(long idEik)
         {
             await companyService.DeactivateAsync(idEik);

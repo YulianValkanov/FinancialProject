@@ -17,67 +17,80 @@
 
                     <th scope="col">Информация:</th>
                     <th scope="col">Основни данни:</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Булстат</td>
                     <td>@Model.IdEik</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Наименование на фирма</td>
                     <td>@Model.CompanyName</td>
+                     <td></td>
                 </tr>
                 <tr>
                     <td>Седалище и адрес на управление</td>
                     <td>@Model.AddressCompany</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Адрес на фирма</td>
                     <td>@Model.AddressActivity</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Код на икономическа дейност</td>
                     <td>@Model.KidNumber</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Начин на представляване</td>
                     <td>@Model.Representing</td>
+                    <td></td>
                 </tr>
 
                 <tr>
                     <td>ТИП стгласно МПС</td>
                     <td>@Model.TypeCompany</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Име за контакти</td>
                     <td>@Model.ContactName</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Телефон за контакт</td>
                     <td>@Model.PhoneNumber</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Имейл</td>
                     <td>@Model.Email</td>
-                </tr>
-                <tr>
-                    <td>Имейл</td>
-                    <td>@Model.Email</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Статус</td>
                     <td>@Model.Status</td>
+                    <td></td>
                 </tr>
 
 
                 <tr>
                     <td><b> Представляващи:</b></td>
-                    <td>                  
-                            <a asp-controller="Manager" asp-action="Add" asp-route-IdEik="@Model.IdEik"  method="post">Добави</a>
 
-                          <a asp-controller="Manager" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>
+                    <td>
+                    @if (User.IsInRole(AdminRolleName))
+                    {                  
+                            <a asp-controller="Manager" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
+
+                            <a asp-controller="Manager" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>                   
+                    }
                     </td>
+                    <td></td>
                 </tr>
 
                 @foreach (var manager in Model.Managers)
@@ -85,18 +98,23 @@
                     <tr>
                         <td>@Model.TypeRepresenting</td>
                         <td>ЕГН: @manager.IdEgn @manager.FirstName @manager.LastName </td>
+                        <td></td>
                     </tr>
                 }
 
 
                 <tr>
                     <td><b> Собственици физически лица:</b></td>
+
                     <td>
-                        <a asp-controller="OwnerPerson" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
+                    @if (User.IsInRole(AdminRolleName))
+                    {                   
+                            <a asp-controller="OwnerPerson" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
 
-                        <a asp-controller="OwnerPerson" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>
-
+                            <a asp-controller="OwnerPerson" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>                 
+                    }
                     </td>
+                    <td></td>
                 </tr>
 
                 @foreach (var owner in Model.OwnersPersons)
@@ -111,61 +129,79 @@
 
                 <tr>
                     <td><b> Собственици юридически лица:</b></td>
+
                     <td>
-                        <a asp-controller="OwnerCompany" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
+                    @if (User.IsInRole(AdminRolleName))
+                    {                     
+                            <a asp-controller="OwnerCompany" asp-action="Add" asp-route-IdEik="@Model.IdEik" method="post">Добави</a>
 
-                        <a asp-controller="OwnerCompany" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>
-
+                            <a asp-controller="OwnerCompany" asp-action="Delete" asp-route-IdEik="@Model.IdEik" method="post">Изтрий</a>                 
+                    }
                     </td>
+                    <td></td>
                 </tr>
 
 
                 @for (var i = 0; i < Model.OwnersCompanies.Count(); i++)
                 {
-
                     try
                     {
-
                         <tr>
                             <td>Собственик</td>
                             <td>ЕИК: @Model.OwnersCompaniesData[i].IdEikOwner  @Model.OwnersCompanies[i].CompanyName</td>
-                            <td>@((Model.OwnersCompaniesData[i].Persent*100).ToString("0.00"))% </td>
+                            <td>@((Model.OwnersCompaniesData[i].Persent * 100).ToString("0.00"))% </td>
 
                         </tr>
                     }
                     catch (Exception)
                     {
 
-                       
-
-
                     }
 
-
-                   
                 }
 
+                <tr>
+                    <td><b> Годишни отчети:</b></td>
+                    <td>
+                        <a asp-controller="Report" asp-action="Details" asp-route-IdEik="@Model.IdEik" method="post">Преглед</a>
+                    </td>
+                    <td></td>
+                   
+                </tr>
 
-                <div class="d-grid gap-2">
-                <a asp-controller="Company" asp-action="Edit" asp-route-IdEik="@Model.IdEik" class="btn btn-warning" method="post">Редактиране на фирма</a>
-                </div>
+                <tr>
+                    <td><b> Кредити:</b></td>
+                    <td>
+                        <a asp-controller="Credit" asp-action="Details" asp-route-IdEik="@Model.IdEik" method="post">Преглед</a>
 
-                <p></p>
+                    </td>
+                    <td></td>
 
-                <form class="mt-2" asp-controller="Company" asp-action="Deactivate" asp-route-IdEik="@Model.IdEik">
+
+                </tr>
+
+                 @if (User.IsInRole(AdminRolleName))
+                {
                     <div class="d-grid gap-2">
-                        <input type="submit" value="Деактивиране на фирма" class="btn btn-warning" />
+                        <a asp-controller="Company" asp-action="Edit" asp-route-IdEik="@Model.IdEik" class="btn btn-warning" method="post">Редактиране на фирма</a>
                     </div>
-                </form>
 
-                <p></p>
+                    <p></p>
 
-                <form class="mt-2" asp-controller="Company" asp-action="Delete" asp-route-IdEik="@Model.IdEik">
-                    <div class="d-grid gap-2">
-                        <input type="submit" value="Изтриване на фирма" class="btn btn-danger" />
-                    </div>
-                </form>
+                    <form class="mt-2" asp-controller="Company" asp-action="Deactivate" asp-route-IdEik="@Model.IdEik">
+                        <div class="d-grid gap-2">
+                            <input type="submit" value="Деактивиране на фирма" class="btn btn-warning" />
+                        </div>
+                    </form>
 
+                    <p></p>
+
+                    <form class="mt-2" asp-controller="Company" asp-action="Delete" asp-route-IdEik="@Model.IdEik">
+                        <div class="d-grid gap-2">
+                            <input type="submit" value="Изтриване на фирма" class="btn btn-danger" />
+                        </div>
+                    </form>
+                }
 
 
 
@@ -174,92 +210,6 @@
 
 
 
-
-        @*
-        <form method="post">
-        <div class="mb-3">
-        <p></p>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.CompanyName" class="form-label">Фирма Наименование</label>
-        <input asp-for="@Model.CompanyName" class="form-control" aria-required="true" />
-        <span asp-validation-for="CompanyName" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.AddressCompany" class="form-label">Седалище и адрес на управление</label>
-        <input asp-for="@Model.AddressCompany" class="form-control" aria-required="true" />
-        <span asp-validation-for="AddressCompany" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.AddressActivity" class="form-label">Адрес на фирма</label>
-        <input asp-for="@Model.AddressActivity" class="form-control" aria-required="true" />
-        <span asp-validation-for="AddressActivity" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.KidNumber" class="form-label">Код на икономическа дейност</label>
-        <input asp-for="@Model.KidNumber" class="form-control" aria-required="true" />
-        <span asp-validation-for="KidNumber" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.Representing" class="form-label">Начин на представляване</label>
-        <input asp-for="@Model.Representing" class="form-control" aria-required="true" />
-        <span asp-validation-for="Representing" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.TypeRepresenting" class="form-label">Управител/Изп. Директор</label>
-        <input asp-for="@Model.TypeRepresenting" class="form-control" aria-required="true" />
-        <span asp-validation-for="TypeRepresenting" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.TypeCompany" class="form-label">ТИП по МПС</label>
-        <input asp-for="@Model.TypeCompany" class="form-control" aria-required="true" />
-        <span asp-validation-for="TypeCompany" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.ContactName" class="form-label">Име за контакти</label>
-        <input asp-for="@Model.ContactName" class="form-control" aria-required="true" />
-        <span asp-validation-for="ContactName" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.PhoneNumber" class="form-label">Телефон за контакт</label>
-        <input asp-for="@Model.PhoneNumber" class="form-control" aria-required="true" />
-        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.Email" class="form-label">Имейл</label>
-        <input asp-for="@Model.Email" class="form-control" aria-required="true" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.Status" class="form-label">Статус: Актувен/Пасивен</label>
-        <input asp-for="@Model.Status" class="form-control" aria-required="true" />
-        <span asp-validation-for="Status" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.OpikUser" class="form-label">ОПИК Потребителско име</label>
-        <input asp-for="@Model.OpikUser" class="form-control" aria-required="true" />
-        <span asp-validation-for="OpikUser" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.OpikPass" class="form-label">ОПИК Парола</label>
-        <input asp-for="@Model.OpikPass" class="form-control" aria-required="true" />
-        <span asp-validation-for="OpikPass" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-        <label asp-for="@Model.OpikPassReport" class="form-label">Парола за отчитане</label>
-        <input asp-for="@Model.OpikPassReport" class="form-control" aria-required="true" />
-        <span asp-validation-for="OpikPassReport" class="text-danger"></span>
-        </div>
-
-        @foreach (var manager in Model.Managers)
-        {
-        <p>@manager.FirstName</p>
-        }
-
-        <div class="mb-3">
-        <input class="btn btn-primary" type="submit" value="Add" />
-        </div>
-        </form>*@
     </div>
 </div>
 

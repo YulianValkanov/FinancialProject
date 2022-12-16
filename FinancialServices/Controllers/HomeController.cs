@@ -43,5 +43,17 @@ namespace FinancialServices.Controllers
             return View(query);
         }
 
+        [HttpGet]
+        public IActionResult Msp([FromQuery] MspQueryModel query)
+        {
+           
+
+            string status = formulaService.GetMsp(query.Personal, query.Assets, query.Revenue);
+
+            query.Msp = status;
+
+            return View(query);
+        }
+
     }
 }

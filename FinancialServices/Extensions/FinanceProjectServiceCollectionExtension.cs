@@ -18,10 +18,11 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IOwnerPersonService, OwnerPersonService>();
             services.AddScoped<IOwnerCompanyService, OwnerCompanyService>();
             services.AddScoped<IFormulasService, FormulasService>();
-         
+            services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<ICreditService, CreditService>();
+
 
             return services;
-
 
         }
 

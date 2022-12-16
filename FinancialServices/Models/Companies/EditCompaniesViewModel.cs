@@ -6,10 +6,11 @@ namespace FinancialServices.Models.Companies
 {
     public class EditCompaniesViewModel
     {
-
+        [Required(ErrorMessage = "EGN е задължително")]
         public long IdEik { get; set; }
 
-        public string? CompanyName { get; set; }
+        [Required(ErrorMessage = "Името е задължително")]
+        public string CompanyName { get; set; }
 
         public string? AddressCompany { get; set; }
 

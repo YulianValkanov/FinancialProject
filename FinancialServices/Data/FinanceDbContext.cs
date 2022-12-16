@@ -35,6 +35,8 @@ namespace FinancialServices.Data
 
         public DbSet<MapingOwnerCompany> MapingOwnerCompanies { get; set; }
 
+        public DbSet<Credit> Credits { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<MapingCompanyReport>()

@@ -2,12 +2,13 @@
 @model ImportsViewModel
 
 @{
-    ViewBag.Title = "Импортирай файлове с данни";
+    ViewBag.Title = "АДМИНИСТРАТИВЕН ПАНЕЛ";
 }
 
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
+<h3 class="text-center">Импортиране на файлове</h3>
 <div class="row">
 
     <input type="button" value="Импортитай КИД" onclick="location.href='@Url.Action("ImportKid", "Imports")'" />
@@ -30,26 +31,36 @@
 
     @*<input type="button" value="Импортитай Мениджъри" onclick="location.href='Admin/ImportManagers'" />*@
 
-    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportManagers", "Imports")'" />
+    <input type="button" value="Импортитай Мениджъри" onclick="location.href='@Url.Action("ImportManagers", "Imports")'" />
     <p></p>
 
 
    @* <input type="button" value="Импортитай собственици на компании - ФЛ" onclick="location.href='Admin/ImportOwnerPersons'" />*@
 
-    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportOwnerPersons", "Imports")'" />
+    <input type="button" value="Импортитай собственици Физически лица" onclick="location.href='@Url.Action("ImportOwnerPersons", "Imports")'" />
     <p></p>
 
    @* <input type="button" value="Импортитай собственици на компании - ЮЛ" onclick="location.href='Admin/ImportOwnerCompany'" />*@
 
-    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("ImportOwnerCompany", "Imports")'" />
+    <input type="button" value="Импортитай собственици Юридически лица" onclick="location.href='@Url.Action("ImportOwnerCompany", "Imports")'" />
 
     <p></p>
 
-    <input type="button" value="Импортитай Юридически лица" onclick="location.href='@Url.Action("Import", "Imports")'" />
+    <input type="button" value="Импортитай вскички файлове" onclick="location.href='@Url.Action("Import", "Imports")'" />
 
    @* <input type="button" value="Импортирай вскички накуп" onclick="location.href='Admin/Import'" />*@
 
+    <p></p>
 
+    <input type="button" value="Импортирай отчет" onclick="location.href='@Url.Action("ImportReports", "Imports")'" />
+
+    @* <input type="button" value="Импортирай вскички накуп" onclick="location.href='Admin/Import'" />*@
+
+    <p></p>
+
+    <input type="button" value="Импортирай мапваща таблица с отчети" onclick="location.href='@Url.Action("ImportReportsMaping", "Imports")'" />
+
+    @* <input type="button" value="Импортирай вскички накуп" onclick="location.href='Admin/Import'" />*@
 
 </div>
 

@@ -1,12 +1,14 @@
-﻿using Microsoft.Build.Framework;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace FinancialServices.Models.Companies
 {
     public class AddCompaniesViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "ЕИК е задължително")]
         public long IdEik { get; set; }
-        [Required]
+       
+        [Required(ErrorMessage = "Името е задължително")]
         public string CompanyName { get; set; }
 
         public string? AddressCompany { get; set; }

@@ -29,15 +29,11 @@ namespace FinancialServices.Contracts
 
         Task EditCompanyAsync(long idEik,AddCompaniesViewModel model);
 
-        //Task<IEnumerable<Genre>> GetGenresAsync();
+       
 
         Task AddCompanyAsync(AddCompaniesViewModel model);
 
-        //Task AddMovieToCollectionAsync(int movieId, string userId);
 
-        //Task<IEnumerable<MovieViewModel>> GetWatchedAsync(string userId);
-
-        //Task RemoveMovieFromCollectionAsync(int movieId, string userId);
 
         Task<IEnumerable<AllViewModel>> AllFilter(
            string? eik = null,

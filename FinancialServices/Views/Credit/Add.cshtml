@@ -1,0 +1,57 @@
+﻿@using FinancialServices.Models.Credits;
+
+@model AddCreditViewModel
+
+@{
+    ViewBag.Title = "Добави кредит";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+          
+           
+
+            <div class="mb-3">
+                <label asp-for="@Model.CreditNumber" class="form-label">Номер на кредит</label>
+                <input asp-for="@Model.CreditNumber" class="form-control" aria-required="true" />
+                <span asp-validation-for="CreditNumber" class="text-danger"></span>
+            </div>
+
+            
+            <div class="mb-3">
+                <label asp-for="@Model.BeginValue" class="form-label">Сума на кредита</label>
+                <input asp-for="@Model.BeginValue" class="form-control" aria-required="true" />
+                <span asp-validation-for="BeginValue" class="text-danger"></span>
+            </div>
+
+            
+            <div class="mb-3">
+                <label asp-for="@Model.Rate" class="form-label">Лихвен %</label>
+                <input asp-for="@Model.Rate" class="form-control" aria-required="true" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+
+            
+            <div class="mb-3">
+                <label asp-for="@Model.PresentValue" class="form-label">Остатък на кредита</label>
+                <input asp-for="@Model.PresentValue" class="form-control" aria-required="true" />
+                <span asp-validation-for="PresentValue" class="text-danger"></span>
+            </div>
+
+
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Добави отчет" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@*@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}*@

@@ -1,0 +1,57 @@
+﻿@using FinancialServices.Models.Reports;
+
+@model AddReportViewModel
+
+@{
+    ViewBag.Title = "Добави отчет";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+          
+           
+
+            <div class="mb-3">
+                <label asp-for="@Model.YearReport" class="form-label">Година на отчет</label>
+                <input asp-for="@Model.YearReport" class="form-control" aria-required="true" />
+                <span asp-validation-for="YearReport" class="text-danger"></span>
+            </div>
+
+            
+            <div class="mb-3">
+                <label asp-for="@Model.AnnualTurnover" class="form-label">Нетни приоди</label>
+                <input asp-for="@Model.AnnualTurnover" class="form-control" aria-required="true" />
+                <span asp-validation-for="AnnualTurnover" class="text-danger"></span>
+            </div>
+
+            
+            <div class="mb-3">
+                <label asp-for="@Model.Assets" class="form-label">Активи</label>
+                <input asp-for="@Model.Assets" class="form-control" aria-required="true" />
+                <span asp-validation-for="Assets" class="text-danger"></span>
+            </div>
+
+            
+            <div class="mb-3">
+                <label asp-for="@Model.CountOfEmployees" class="form-label">Персонал</label>
+                <input asp-for="@Model.CountOfEmployees" class="form-control" aria-required="true" />
+                <span asp-validation-for="CountOfEmployees" class="text-danger"></span>
+            </div>
+
+
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Добави отчет" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@*@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}*@

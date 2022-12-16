@@ -5,10 +5,12 @@ using FinancialServices.Models.Persons;
 using FinancialServices.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static FinancialServices.Areas.Administration.Constants.AdminConstants;
 
 namespace FinancialServices.Controllers
 {
     [Authorize]
+    [Authorize(Roles = AdminRolleName)]
     public class OwnerCompanyController : Controller
     {
 

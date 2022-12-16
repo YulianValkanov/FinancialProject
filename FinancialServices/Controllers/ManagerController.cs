@@ -1,13 +1,14 @@
 ﻿using FinancialServices.Constants;
 using FinancialServices.Contracts;
 using FinancialServices.Models;
-using FinancialServices.Models.Persons;
+using static FinancialServices.Areas.Administration.Constants.AdminConstants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialServices.Controllers
 {
     [Authorize]
+    [Authorize(Roles = AdminRolleName)]
     public class ManagerController : Controller
     {
 
@@ -25,7 +26,7 @@ namespace FinancialServices.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet]     
         public async Task<IActionResult> Add(long idEik)
         {
             var model = new AddManagerViewModel();

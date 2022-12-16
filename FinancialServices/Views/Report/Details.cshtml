@@ -1,0 +1,96 @@
+﻿@using FinancialServices.Models.Reports
+@model DetailsReportViewModel
+
+
+
+<h2 class="text-center">Информация за отчети на фирма @Model.CompanyName с ЕИК @Model.IdEik</h2>
+
+
+<hr />
+
+<div class="row">
+
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Година:</th>
+                    @for (var i = 0; i < Model.Reports.Count(); i++)
+                    {
+                        <th scope="col">@Model.Reports.ToList()[i].YearReport</th>
+                    }
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Приходи</td>
+                    @for (var i = 0; i < Model.Reports.Count(); i++)
+                    {
+                        <td scope="col">@Model.Reports.ToList()[i].AnnualTurnover</td>
+                    }
+                </tr>
+
+                <tr>
+                    <td>Активи</td>
+                    @for (var i = 0; i < Model.Reports.Count(); i++)
+                    {
+                        <td scope="col">@Model.Reports.ToList()[i].Assets</td>
+                    }
+                </tr>
+
+                <tr>
+                    <td>Персонал</td>
+                    @for (var i = 0; i < Model.Reports.Count(); i++)
+                    {
+                        <td scope="col">@Model.Reports.ToList()[i].CountOfEmployees</td>
+                    }
+                </tr>
+
+                @if (User.IsInRole(AdminRolleName))
+                {
+                    <tr>
+                        <td></td>
+                        @for (var i = 0; i < Model.Reports.Count(); i++)
+                        {
+                            <td>  <a asp-controller="Report" asp-action="Edit" asp-route-IdEik="@Model.Reports.ToList()[i].IdEik" asp-route-YearReport="@Model.Reports.ToArray()[i].YearReport" method="post">Редактирай</a></td>
+                        }
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        @for (var i = 0; i < Model.Reports.Count(); i++)
+                        {
+                            <td>  <a asp-controller="Report" asp-action="Delete" asp-route-IdEik="@Model.Reports.ToArray()[i].IdEik" asp-route-YearReport="@Model.Reports.ToArray()[i].YearReport" method="post">Изтрий</a></td>
+                        }
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+
+
+        <p></p>
+
+        @if (User.IsInRole(AdminRolleName))
+        {
+            <div class="d-grid gap-2">
+                <a asp-controller="Report" asp-action="Add" asp-route-IdEik="@Model.IdEik" class="btn btn-warning" method="post">Добавяне на отчет</a>
+            </div>
+        }
+    </div>
+
+
+
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

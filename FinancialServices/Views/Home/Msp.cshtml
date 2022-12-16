@@ -1,0 +1,64 @@
+﻿@model MspQueryModel
+
+@{
+    ViewBag.Title = "Калкулатор за изчисляване на статут на предприятие, съгласно закона за МСП";
+}
+
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form method="get">
+    <div class="row">
+        <div class="form-group col-md-3 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="Personal"></label>
+                <input asp-for="Personal" class="form-control" placeholder="...">
+
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label asp-for="Revenue"></label>
+            <input asp-for="Revenue" class="form-control" placeholder="...">
+        </div>
+
+        <div class="form-group col-md-3">
+            <div class="form-group">
+                <label asp-for="Assets"></label>
+                <input asp-for="Assets" class="form-control" placeholder="...">
+            </div>
+        </div>
+
+
+
+        <div class="col-md-3">
+            <div class="form-group mt-4 p-2">
+                <input type="submit" value="Покажи" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="row">
+
+
+    <div class="container">
+
+     <P></P>
+        <h3>Статусът на предприятието ви е:  <b style="color:Tomato;">@Model.Msp</b></h3>
+        <P></P>
+
+        <img id="kriterii" src="https://finance.valkanovihouse.com/images/2.JPG" alt="kr">
+
+
+
+    </div>
+
+</div>
+
+
+

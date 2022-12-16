@@ -5,7 +5,9 @@
         double GetPmt(double ir, int np, double pv);
 
 
-        string FormatThisNumber(double number);
+        string FormatNumbersAddSpace(double number);
+
+        string GetMsp(int personal, double assets, double revenues);
 
     }
 }

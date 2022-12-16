@@ -22,10 +22,41 @@ namespace FinancialServices.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("FinancialServices.Data.Models.Credit", b =>
+                {
+                    b.Property<int>("CreditId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CreditId"), 1L, 1);
+
+                    b.Property<double>("BeginValue")
+                        .HasColumnType("float");
+
+                    b.Property<int>("CreditNumber")
+                        .HasColumnType("int");
+
+                    b.Property<long>("IdEik")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("PresentValue")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Rate")
+                        .HasColumnType("float");
+
+                    b.HasKey("CreditId");
+
+                    b.ToTable("Credits");
+                });
+
             modelBuilder.Entity("FinancialServices.Data.Models.ReportData", b =>
                 {
-                    b.Property<long>("ReportId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("ReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReportId"), 1L, 1);
 
                     b.Property<double>("AnnualTurnover")
                         .HasColumnType("float");
@@ -35,6 +66,12 @@ namespace FinancialServices.Migrations
 
                     b.Property<double>("CountOfEmployees")
                         .HasColumnType("float");
+
+                    b.Property<long>("IdEik")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("YearReport")
+                        .HasColumnType("int");
 
                     b.HasKey("ReportId");
 
@@ -322,8 +359,8 @@ namespace FinancialServices.Migrations
                     b.Property<long>("IdEik")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("ReportId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("ReportId")
+                        .HasColumnType("int");
 
                     b.HasKey("IdEik", "ReportId");
 

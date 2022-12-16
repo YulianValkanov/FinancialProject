@@ -37,9 +37,8 @@ namespace FinancialServices.Services
         }
 
 
-        public string FormatThisNumber(double number)
+        public string FormatNumbersAddSpace(double number)
         {
-
             var nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
 
             nfi.NumberGroupSeparator = " ";
@@ -48,7 +47,31 @@ namespace FinancialServices.Services
 
         }
 
-       
+        public string GetMsp(int personal, double assets, double revenues)
+        {
+            string result = "ГОЛЯМО";
+
+
+            if (personal < 250 && (revenues <= 97500000 || assets <= 84000000))
+            {
+                result = "СРЕДНО";
+            }
+
+            if (personal < 50 && (revenues <= 19500000 || assets <= 19500000))
+            {
+                result = "МАЛКО";
+            }
+
+            if (personal < 10 && (revenues <= 3900000 || assets <= 3900000))
+            {
+                result = "МИКРО";
+            }
+
+            return result;
+
+        }
+
+
 
 
     }
