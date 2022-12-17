@@ -389,7 +389,7 @@ namespace FinancialServices.Tests
 
             var companies = await companyService.AllFilter();
 
-            Assert.That(3, Is.EqualTo(3));
+            Assert.That(companies.Count(), Is.EqualTo(3));
            
         }
 
