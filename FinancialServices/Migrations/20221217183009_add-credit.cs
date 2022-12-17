@@ -4,7 +4,7 @@
 
 namespace FinancialServices.Migrations
 {
-    public partial class add_credits : Migration
+    public partial class addcredit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

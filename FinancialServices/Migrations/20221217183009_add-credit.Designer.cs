@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinancialServices.Migrations
 {
     [DbContext(typeof(FinanceDbContext))]
-    [Migration("20221212181630_add_credits")]
-    partial class add_credits
+    [Migration("20221217183009_add-credit")]
+    partial class addcredit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
