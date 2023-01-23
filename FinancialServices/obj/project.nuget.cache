@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "grXgbsKh+eeJUcdZKM4I5OCm1rfbWV7DGWSsaVPSmFxUgjf6A02HWbrotkyBGacVLWA0YKsr0UV9vAMDtbUCmw==",
+  "dgSpecHash": "4mMfy4Fa5okmqonm4ANHc4Ubr14zpbyQaXQGxWKjo1Nvqkb0d2ZTVyTPSyrV9KSz8f+YPD8/ZY50AITYYL9D3A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Julian\\Source\\Repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj",
+  "projectFilePath": "C:\\Users\\Julian\\source\\repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Julian\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",

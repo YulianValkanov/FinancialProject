@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julian\\Source\\Repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj": {}
+    "C:\\Users\\Julian\\source\\repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julian\\Source\\Repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj": {
+    "C:\\Users\\Julian\\source\\repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julian\\Source\\Repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\source\\repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj",
         "projectName": "FinancialServices",
-        "projectPath": "C:\\Users\\Julian\\Source\\Repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj",
+        "projectPath": "C:\\Users\\Julian\\source\\repos\\FinancialProject\\FinancialServices\\FinancialServices.csproj",
         "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julian\\Source\\Repos\\FinancialProject\\FinancialServices\\obj\\",
+        "outputPath": "C:\\Users\\Julian\\source\\repos\\FinancialProject\\FinancialServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

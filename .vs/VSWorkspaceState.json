@@ -1,14 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\FinancialServices",
-    "\\FinancialServices\\Areas",
-    "\\FinancialServices\\Areas\\Administration",
-    "\\FinancialServices\\Areas\\Administration\\Data",
-    "\\FinancialServices\\Areas\\Administration\\Data\\Datasets",
-    "\\FinancialServices\\ImportResults",
-    "\\FinancialServices\\Properties"
+    ""
   ],
-  "SelectedNode": "\\FinancialServices",
+  "SelectedNode": "\\FinancialServices.sln",
   "PreviewInSolutionExplorer": false
 }

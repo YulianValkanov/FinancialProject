@@ -8,173 +8,173 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FinancialServices
 build_property.RootNamespace = FinancialServices
-build_property.ProjectDir = C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices\
+build_property.ProjectDir = C:\Users\Julian\source\repos\FinancialProject\FinancialServices\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices
+build_property.MSBuildProjectDirectory = C:\Users\Julian\source\repos\FinancialProject\FinancialServices
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Admin/Views/Admin/Index.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Admin/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Company/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Company/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Company/All.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Company/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Company/Details.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Company/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Company/Edit.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Company/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Credit/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Credit/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGl0XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Credit/Details.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Credit/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGl0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Credit/Edit.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Credit/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGl0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Home/Calculator.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Home/Calculator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWxjdWxhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Home/Index.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Home/Msp.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Home/Msp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNc3AuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Manager/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Manager/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Manager/Delete.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Manager/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/OwnerCompany/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/OwnerCompany/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJDb21wYW55XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/OwnerCompany/Delete.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/OwnerCompany/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJDb21wYW55XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/OwnerPerson/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/OwnerPerson/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJQZXJzb25cQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/OwnerPerson/Delete.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/OwnerPerson/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJQZXJzb25cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Person/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Person/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Person/All.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Person/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Person/Edit.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Person/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Report/Add.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Report/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Report/Details.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Report/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Report/Edit.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Report/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Shared/Error.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Shared/_UserMessages.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Shared/_UserMessages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTWVzc2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/User/Login.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/User/Register.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/_ViewImports.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/_ViewStart.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/wwwroot/_ViewStart.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/wwwroot/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-23wm88hkvs
 
-[C:/Users/Julian/Source/Repos/FinancialProject/FinancialServices/Views/Shared/_Layout.cshtml]
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0e1lhmb0ug

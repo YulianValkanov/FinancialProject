@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinancialServices.Migrations
 {
-    public partial class reports : Migration
+    public partial class createDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,23 @@ namespace FinancialServices.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Credits",
+                columns: table => new
+                {
+                    CreditId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdEik = table.Column<long>(type: "bigint", nullable: false),
+                    CreditNumber = table.Column<int>(type: "int", nullable: false),
+                    BeginValue = table.Column<double>(type: "float", nullable: false),
+                    Rate = table.Column<double>(type: "float", nullable: false),
+                    PresentValue = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Credits", x => x.CreditId);
                 });
 
             migrationBuilder.CreateTable(
@@ -395,6 +412,9 @@ namespace FinancialServices.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Credits");
 
             migrationBuilder.DropTable(
                 name: "MapingCompanyReports");
