@@ -18,5 +18,9 @@ namespace FinancialServices.Contracts
         Task<ReportData> GetReportAsync(long idEik, int year);
 
         Task EditReportAsync(long idEik, ReportViewModel model);
+
+        Task <DetailsPnlViewModel> GetAnnualPnlAsync(long idEik);
+
+        
     }
 }

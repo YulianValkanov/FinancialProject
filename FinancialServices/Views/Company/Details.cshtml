@@ -160,13 +160,22 @@
 
                 }
 
-                <tr>
+              @*  <tr>
                     <td><b> Годишни отчети:</b></td>
                     <td>
                         <a asp-controller="Report" asp-action="Details" asp-route-IdEik="@Model.IdEik" method="post">Преглед</a>
                     </td>
                     <td></td>
                    
+                </tr>*@
+
+                <tr>
+                    <td><b> Годишни отчети:</b></td>
+                    <td>
+                        <a asp-controller="Report" asp-action="DetailsPnl" asp-route-IdEik="@Model.IdEik" method="post">Преглед</a>
+                    </td>
+                    <td></td>
+
                 </tr>
 
                 <tr>

@@ -32,7 +32,7 @@ namespace FinancialServices.Areas.Administration.Controllers
 
             // await databaseService.ImportsEntities();
 
-            var model = new ImportsViewModel();
+            var model = new ImportReportViewModel();
 
             return View(model);
         }
@@ -245,6 +245,9 @@ namespace FinancialServices.Areas.Administration.Controllers
 
             return RedirectToAction(nameof(Index), "Admin");
         }
+
+
+
 
     }
 }

@@ -32,24 +32,14 @@
                         @if (User?.Identity?.IsAuthenticated ?? false)
                         {
 
-
-                            @* <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="All"> Клиенти</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Add">Добави фирма</a>
-                        </li>
-
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Person" asp-action="Add">Добави човек</a>
-                        </li>*@
-
-
-                            <li class="nav-item">
+                       <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Администрация</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Reports" asp-action="Add">Импортирай Репорт</a>
+                            </li>
+
 
                         }
                     </ul>

@@ -38,6 +38,15 @@ namespace FinancialServices.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> DetailsPnl(long idEik)
+        {
+
+            var model = await reportService.GetAnnualPnlAsync(idEik);
+
+
+            return View(model);
+        }
+
 
         [HttpGet]
         [Authorize(Roles = AdminRolleName)]

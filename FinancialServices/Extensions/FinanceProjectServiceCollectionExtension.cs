@@ -20,6 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IFormulasService, FormulasService>();
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<ICreditService, CreditService>();
+         
 
 
             return services;

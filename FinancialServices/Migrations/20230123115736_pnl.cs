@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinancialServices.Migrations
 {
-    public partial class createDB : Migration
+    public partial class pnl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -92,6 +92,83 @@ namespace FinancialServices.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Persons", x => x.IdEgn);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PNLs",
+                columns: table => new
+                {
+                    idEikYear = table.Column<long>(type: "bigint", nullable: false),
+                    Eik = table.Column<long>(type: "bigint", nullable: false),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: false),
+                    N10100 = table.Column<double>(type: "float", nullable: false),
+                    N10200 = table.Column<double>(type: "float", nullable: false),
+                    N10210 = table.Column<double>(type: "float", nullable: false),
+                    N10220 = table.Column<double>(type: "float", nullable: false),
+                    N10300 = table.Column<double>(type: "float", nullable: false),
+                    N10310 = table.Column<double>(type: "float", nullable: false),
+                    N10311 = table.Column<double>(type: "float", nullable: false),
+                    N10320 = table.Column<double>(type: "float", nullable: false),
+                    N10321 = table.Column<double>(type: "float", nullable: false),
+                    N10400 = table.Column<double>(type: "float", nullable: false),
+                    N10410 = table.Column<double>(type: "float", nullable: false),
+                    N10411 = table.Column<double>(type: "float", nullable: false),
+                    N10413 = table.Column<double>(type: "float", nullable: false),
+                    N10412 = table.Column<double>(type: "float", nullable: false),
+                    N10420 = table.Column<double>(type: "float", nullable: false),
+                    N10500 = table.Column<double>(type: "float", nullable: false),
+                    N10510 = table.Column<double>(type: "float", nullable: false),
+                    N10520 = table.Column<double>(type: "float", nullable: false),
+                    N10000 = table.Column<double>(type: "float", nullable: false),
+                    N11100 = table.Column<double>(type: "float", nullable: false),
+                    N11110 = table.Column<double>(type: "float", nullable: false),
+                    N11200 = table.Column<double>(type: "float", nullable: false),
+                    N11210 = table.Column<double>(type: "float", nullable: false),
+                    N11220 = table.Column<double>(type: "float", nullable: false),
+                    N11201 = table.Column<double>(type: "float", nullable: false),
+                    N11000 = table.Column<double>(type: "float", nullable: false),
+                    N14000 = table.Column<double>(type: "float", nullable: false),
+                    N13000 = table.Column<double>(type: "float", nullable: false),
+                    N14100 = table.Column<double>(type: "float", nullable: false),
+                    N14200 = table.Column<double>(type: "float", nullable: false),
+                    N14300 = table.Column<double>(type: "float", nullable: false),
+                    N14400 = table.Column<double>(type: "float", nullable: false),
+                    N14500 = table.Column<double>(type: "float", nullable: false),
+                    N15100 = table.Column<double>(type: "float", nullable: false),
+                    N15110 = table.Column<double>(type: "float", nullable: false),
+                    N15120 = table.Column<double>(type: "float", nullable: false),
+                    N15130 = table.Column<double>(type: "float", nullable: false),
+                    N15131 = table.Column<double>(type: "float", nullable: false),
+                    N15132 = table.Column<double>(type: "float", nullable: false),
+                    N15133 = table.Column<double>(type: "float", nullable: false),
+                    N15200 = table.Column<double>(type: "float", nullable: false),
+                    N15300 = table.Column<double>(type: "float", nullable: false),
+                    N15310 = table.Column<double>(type: "float", nullable: false),
+                    N15400 = table.Column<double>(type: "float", nullable: false),
+                    N15410 = table.Column<double>(type: "float", nullable: false),
+                    N15411 = table.Column<double>(type: "float", nullable: false),
+                    N15420 = table.Column<double>(type: "float", nullable: false),
+                    N15430 = table.Column<double>(type: "float", nullable: false),
+                    N15000 = table.Column<double>(type: "float", nullable: false),
+                    N16100 = table.Column<double>(type: "float", nullable: false),
+                    N16110 = table.Column<double>(type: "float", nullable: false),
+                    N16200 = table.Column<double>(type: "float", nullable: false),
+                    N16210 = table.Column<double>(type: "float", nullable: false),
+                    N16300 = table.Column<double>(type: "float", nullable: false),
+                    N16310 = table.Column<double>(type: "float", nullable: false),
+                    N16320 = table.Column<double>(type: "float", nullable: false),
+                    N16330 = table.Column<double>(type: "float", nullable: false),
+                    N16000 = table.Column<double>(type: "float", nullable: false),
+                    N19000 = table.Column<double>(type: "float", nullable: false),
+                    N18000 = table.Column<double>(type: "float", nullable: false),
+                    N19100 = table.Column<double>(type: "float", nullable: false),
+                    N19200 = table.Column<double>(type: "float", nullable: false),
+                    N19500 = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PNLs", x => x.idEikYear);
                 });
 
             migrationBuilder.CreateTable(
@@ -427,6 +504,9 @@ namespace FinancialServices.Migrations
 
             migrationBuilder.DropTable(
                 name: "MapingOwnerPersons");
+
+            migrationBuilder.DropTable(
+                name: "PNLs");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

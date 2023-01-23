@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Admin/Views/Reports/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVwb3J0c1xBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -129,6 +133,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Report/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Report/DetailsPnl.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERldGFpbHNQbmwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Julian/source/repos/FinancialProject/FinancialServices/Views/Report/Edit.cshtml]

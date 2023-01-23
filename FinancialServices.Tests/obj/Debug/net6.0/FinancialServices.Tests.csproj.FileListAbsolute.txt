@@ -704,3 +704,4 @@ C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices.Tests\obj\Debug\
 C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices.Tests\obj\Debug\net6.0\FinancialServices.Tests.pdb
 C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices.Tests\obj\Debug\net6.0\FinancialServices.Tests.genruntimeconfig.cache
 C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices.Tests\obj\Debug\net6.0\ref\FinancialServices.Tests.dll
+C:\Users\Julian\source\repos\FinancialProject\FinancialServices.Tests\bin\Debug\net6.0\Areas\Admin\Data\DataSets\ReportPnl.json

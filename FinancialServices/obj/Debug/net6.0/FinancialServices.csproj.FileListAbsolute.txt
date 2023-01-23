@@ -825,3 +825,4 @@ C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices\obj\Debug\net6.0
 C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices\obj\Debug\net6.0\FinancialServices.pdb
 C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices\obj\Debug\net6.0\FinancialServices.genruntimeconfig.cache
 C:\Users\Julian\Source\Repos\FinancialProject\FinancialServices\obj\Debug\net6.0\ref\FinancialServices.dll
+C:\Users\Julian\source\repos\FinancialProject\FinancialServices\bin\Debug\net6.0\Areas\Admin\Data\DataSets\ReportPnl.json

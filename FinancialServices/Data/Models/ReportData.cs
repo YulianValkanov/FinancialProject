@@ -30,5 +30,11 @@ namespace FinancialServices.Data.Models
 
         public double AnnualTurnover { get; set; } = 0.0;
 
+
+        ////Report PNL
+      
+
+        
+
     }
 }

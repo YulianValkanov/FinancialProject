@@ -26,6 +26,7 @@
 
         Task ImportReportsMaping();
 
+        Task ImportOpr(long IdEik, string CompanyName, int YearReport);
 
     }
 }

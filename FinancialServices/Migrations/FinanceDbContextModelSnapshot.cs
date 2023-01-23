@@ -50,6 +50,215 @@ namespace FinancialServices.Migrations
                     b.ToTable("Credits");
                 });
 
+            modelBuilder.Entity("FinancialServices.Data.Models.PNL", b =>
+                {
+                    b.Property<long>("idEikYear")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Eik")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("N10000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10200")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10210")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10220")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10300")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10310")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10311")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10320")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10321")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10400")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10410")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10411")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10412")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10413")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10420")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10500")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10510")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N10520")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11110")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11200")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11201")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11210")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11220")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N13000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N14000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N14100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N14200")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N14300")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N14400")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N14500")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15110")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15120")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15130")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15131")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15132")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15133")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15200")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15300")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15310")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15400")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15410")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15411")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15420")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N15430")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16110")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16200")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16210")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16300")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16310")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16320")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N16330")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N18000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N19000")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N19100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N19200")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N19500")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("idEikYear");
+
+                    b.ToTable("PNLs");
+                });
+
             modelBuilder.Entity("FinancialServices.Data.Models.ReportData", b =>
                 {
                     b.Property<int>("ReportId")

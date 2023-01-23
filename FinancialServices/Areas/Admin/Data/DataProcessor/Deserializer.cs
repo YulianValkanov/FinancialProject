@@ -1,8 +1,10 @@
 ﻿namespace FinancialServices.Areas.Administration.Data.DataProcessor
 {
+    using FinancialServices.Areas.Admin.Data.DataProcessor.ImportDto;
     using FinancialServices.Areas.Administration.Data.DataProcessor.ImportDto;
     using FinancialServices.Data;
     using FinancialServices.Data.Models;
+    using Microsoft.EntityFrameworkCore;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
@@ -452,6 +454,127 @@
             return sb.ToString().TrimEnd();
         }
 
+
+        public static string ImportOpr(FinanceDbContext context, long idEik, string Companyname, int Year, string jsonString)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            ImportPnlDto[] reportDto = JsonConvert.DeserializeObject<ImportPnlDto[]>(jsonString);
+         
+            int currentYear=0;
+
+            foreach (var report in reportDto)
+            {
+
+                Year = Year - currentYear;
+
+
+                if (!IsValid(report))
+                {
+                    sb.AppendLine("Invalid data report!");
+                    continue;
+                }
+
+                PNL currentPnl = new PNL()
+                {
+
+                    idEikYear = long.Parse(idEik.ToString()+Year.ToString()),
+                    Eik=idEik,
+                    CompanyName=Companyname,
+                    Year=Year,
+
+                    N10100 = report.N10100,
+                    N10200 = report.N10200,
+                    N10210 = report.N10210,
+                    N10220 = report.N10220,
+                    N10300 = report.N10300,
+                    N10310 = report.N10310,
+                    N10311 = report.N10311,
+                    N10320 = report.N10320,
+                    N10321 = report.N10321,
+                    N10400 = report.N10400,
+                    N10410 = report.N10410,
+                    N10411 = report.N10411,
+                    N10413 = report.N10413,
+                    N10412 = report.N10412,
+                    N10420 = report.N10420,
+                    N10500 = report.N10500,
+                    N10510 = report.N10510,
+                    N10520 = report.N10520,
+                    N10000 = report.N10000,
+                    N11100 = report.N11100,
+                    N11110 = report.N11110,
+                    N11200 = report.N11200,
+                    N11210 = report.N11210,
+                    N11220 = report.N11220,
+                    N11201 = report.N11201,
+                    N11000 = report.N11000,
+                    N14000 = report.N14000,
+                    N13000 = report.N13000,
+                    N14100 = report.N14100,
+                    N14200 = report.N14200,
+                    N14300 = report.N14300,
+                    N14400 = report.N14400,
+                    N14500 = report.N14500,
+                    N15100 = report.N15100,
+                    N15110 = report.N15110,
+                    N15120 = report.N15120,
+                    N15130 = report.N15130,
+                    N15131 = report.N15131,
+                    N15132 = report.N15132,
+                    N15133 = report.N15133,
+                    N15200 = report.N15200,
+                    N15300 = report.N15300,
+                    N15310 = report.N15310,
+                    N15400 = report.N15400,
+                    N15410 = report.N15410,
+                    N15411 = report.N15411,
+                    N15420 = report.N15420,
+                    N15430 = report.N15430,
+                    N15000 = report.N15000,
+                    N16100 = report.N16100,
+                    N16110 = report.N16110,
+                    N16200 = report.N16200,
+                    N16210 = report.N16210,
+                    N16300 = report.N16300,
+                    N16310 = report.N16310,
+                    N16320 = report.N16320,
+                    N16330 = report.N16330,
+                    N16000 = report.N16000,
+                    N19000 = report.N19000,
+                    N18000 = report.N18000,
+                    N19100 = report.N19100,
+                    N19200 = report.N19200,
+                    N19500 = report.N19500,
+
+
+                };
+
+                var exist = context.PNLs.FirstOrDefault(x => x.idEikYear == currentPnl.idEikYear);
+
+                if (exist==null)
+                {
+                    context.PNLs.AddAsync(currentPnl);
+
+                    sb.AppendLine($"Successfully imported  {currentPnl.idEikYear} for year {currentPnl.Year}");
+
+                    context.SaveChanges();
+                }
+
+              
+
+                currentYear = 1;
+            }
+
+
+
+
+            return sb.ToString().TrimEnd();
+
+
+        }
+
+        
 
 
 
